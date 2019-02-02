@@ -42,6 +42,8 @@ public class Constants
     public static final int SHOOTER_ANGLE_ACCELERATION                   = 6000;
     public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 15000;
 
-    public static final double SHOOTER_ANGLE_MINIMUM                     = 0.0;
-    public static final double SHOOTER_ANGLE_MAXIMUM                     = 0.0;
+    public static final int SHOOTER_ANGLE_MINIMUM                        = 180;
+    public static final int SHOOTER_ANGLE_MAXIMUM                        = 0;
+
+    public static final double SHOOTER_ANGLE_ENCODER_YINTERCEPT          = 0.0;
 }
