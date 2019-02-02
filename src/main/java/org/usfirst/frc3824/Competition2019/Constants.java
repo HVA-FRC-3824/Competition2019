@@ -32,18 +32,18 @@ public class Constants
     public static final int K_PID_LOOP_IDX                               = 0;
     public static final int K_TIMEOUT_MS                                 = 30;
 
-    public static final double SHOOTER_ANGLE_F                           = 0.0;
-    public static final double SHOOTER_ANGLE_P                           = 0.0;
-    public static final double SHOOTER_ANGLE_I                           = 0.0;
+    public static final double SHOOTER_ANGLE_F                           = 0.8;
+    public static final double SHOOTER_ANGLE_P                           = 1.0;
+    public static final double SHOOTER_ANGLE_I                           = 0.01;
     public static final double SHOOTER_ANGLE_D                           = 0.0;
 
     public static final double SHOOTER_ANGLE_PEAK_OUTPUT                 = 1.0;
 
-    public static final int SHOOTER_ANGLE_ACCELERATION                   = 6000;
-    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 15000;
+    public static final int SHOOTER_ANGLE_ACCELERATION                   = 200;
+    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 200;
 
-    public static final int SHOOTER_ANGLE_MINIMUM                        = 180;
-    public static final int SHOOTER_ANGLE_MAXIMUM                        = 0;
+    public static final int SHOOTER_ANGLE_MINIMUM                        = -180;
+    public static final int SHOOTER_ANGLE_MAXIMUM                        = 180;
 
     public static final double SHOOTER_ANGLE_ENCODER_YINTERCEPT          = 0.0;
 }
