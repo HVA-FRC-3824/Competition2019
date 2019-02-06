@@ -88,7 +88,7 @@ public class Shooter extends Subsystem {
                                                   Constants.K_TIMEOUT_MS);
 
         shooterAngleMaster.setSensorPhase(false);
-        shooterAngleMaster.setInverted(true);
+        shooterAngleMaster.setInverted(false);
         
         shooterAngleMaster.setStatusFramePeriod(StatusFrameEnhanced.Status_13_Base_PIDF0, 10, Constants.K_TIMEOUT_MS);
         shooterAngleMaster.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, Constants.K_TIMEOUT_MS);
@@ -110,7 +110,7 @@ public class Shooter extends Subsystem {
         shooterAngleMaster.setSelectedSensorPosition(0, Constants.K_PID_LOOP_IDX, Constants.K_TIMEOUT_MS);
 
         shooterAngleSlave.follow(shooterAngleMaster);
-        shooterAngleSlave.setInverted(false);
+        shooterAngleSlave.setInverted(true);
 
         // shooterAngleMaster.set(ControlMode.MotionMagic, 0);
     }
