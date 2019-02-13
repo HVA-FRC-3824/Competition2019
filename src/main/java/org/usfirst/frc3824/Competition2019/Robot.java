@@ -78,9 +78,9 @@ public class Robot extends TimedRobot {
         CameraServer.getInstance().startAutomaticCapture(0);
         CameraServer.getInstance().startAutomaticCapture(1);
         // // limelight camera
-        // NetworkTableInstance inst = NetworkTableInstance.getDefault();
-        // NetworkTable table = inst.getTable("limelight");
-        // table.getEntry("camMode").setNumber(1);
+        // NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+        // NetworkTableEntry camMode = table.getEntry("camMode");
+        // camMode.setNumber(1);
 
         // Create SmartDashboard F,P,I,D,Velocity,Acceleration for calibrating Shooter Angle PID's
         SmartDashboard.putNumber("SHOOTER ANGLE F", 0.0);
@@ -162,8 +162,5 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Shooter Angle Setpoint", shooter.getAngleSetpoint());
         SmartDashboard.putNumber("Shooter Angle Position", shooter.getAnglePositionEncoder());
         SmartDashboard.putNumber("Shooter Angle Velocity", shooter.getAngleVelocity());
-
-        // Hatchpanel Data
-        SmartDashboard.putNumber("Scooper Angle", hatchPanel.getAngle());
     }
 }

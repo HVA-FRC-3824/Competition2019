@@ -157,7 +157,7 @@ public class Chassis extends Subsystem {
             twist *= 0.8;
   
         // Drive with arcade control
-        differentialDrive.arcadeDrive(moveValue, twist);
+        differentialDrive.arcadeDrive(-moveValue, twist);
     }
     public void resetNavXGyro()
     {
