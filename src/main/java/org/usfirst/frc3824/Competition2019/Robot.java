@@ -90,6 +90,29 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("SHOOTER ANGLE CRUISE VELOCITY", 0);
         SmartDashboard.putNumber("SHOOTER ANGLE ACCELERATION", 0);
 
+        SmartDashboard.putNumber("SHOOTER TOP F", 0.0);
+        SmartDashboard.putNumber("SHOOTER TOP P", 0.0);
+        SmartDashboard.putNumber("SHOOTER TOP I", 0.0);
+        SmartDashboard.putNumber("SHOOTER TOP D", 0.0);
+
+        SmartDashboard.putNumber("SHOOTER BOTTOM F", 0.0);
+        SmartDashboard.putNumber("SHOOTER BOTTOM P", 0.0);
+        SmartDashboard.putNumber("SHOOTER BOTTOM I", 0.0);
+        SmartDashboard.putNumber("SHOOTER BOTTOM D", 0.0);
+
+        SmartDashboard.putNumber("CLIMBER FRONT F", 0.0);
+        SmartDashboard.putNumber("CLIMBER FRONT P", 0.0);
+        SmartDashboard.putNumber("CLIMBER FRONT I", 0.0);
+        SmartDashboard.putNumber("CLIMBER FRONT D", 0.0);
+        SmartDashboard.putNumber("CLIMBER FRONT CRUISE VELOCITY", 0);
+        SmartDashboard.putNumber("CLIMBER FRONT ACCELERATION", 0);
+
+        SmartDashboard.putNumber("CLIMBER BACK F", 0.0);
+        SmartDashboard.putNumber("CLIMBER BACK P", 0.0);
+        SmartDashboard.putNumber("CLIMBER BACK I", 0.0);
+        SmartDashboard.putNumber("CLIMBER BACK D", 0.0);
+        SmartDashboard.putNumber("CLIMBER BACK CRUISE VELOCITY", 0);
+        SmartDashboard.putNumber("CLIMBER BACK ACCELERATION", 0);
     }
 
     /**
@@ -162,5 +185,19 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Shooter Angle Setpoint", shooter.getAngleSetpoint());
         SmartDashboard.putNumber("Shooter Angle Position", shooter.getAnglePositionEncoder());
         SmartDashboard.putNumber("Shooter Angle Velocity", shooter.getAngleVelocity());
+        SmartDashboard.putNumber("Shooter Angle Current", shooter.getAngleCurrent());
+
+        // Climber Data
+        SmartDashboard.putNumber("Climber Front Setpoint", climber.getFrontSetpoint());
+        SmartDashboard.putNumber("Climber Front Velocity", climber.getFrontVelocity());
+        SmartDashboard.putNumber("Climber Front Position", climber.getFrontPosition());
+        SmartDashboard.putNumber("Climber Front Error", climber.getFrontError());
+        SmartDashboard.putNumber("Climber Front Motor Output", climber.getFrontVoltage());
+
+        SmartDashboard.putNumber("Climber Back Setpoint", climber.getBackSetpoint());
+        SmartDashboard.putNumber("Climber Back Velocity", climber.getBackVelocity());
+        SmartDashboard.putNumber("Climber Back Position", climber.getBackPosition());
+        SmartDashboard.putNumber("Climber Back Error", climber.getBackError());
+        SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackVoltage());
     }
 }
