@@ -83,7 +83,7 @@ public class Shooter extends Subsystem {
         
         
         
-        shooterPusher = new Solenoid(0, 3);
+        shooterPusher = new Solenoid(0, 1);
         addChild("ShooterPusher",shooterPusher);
         
         
@@ -141,7 +141,7 @@ public class Shooter extends Subsystem {
                                                         Constants.K_TIMEOUT_MS);
 
         shooterWheelsTop.setSensorPhase(true);
-        shooterWheelsTop.setInverted(false);
+        shooterWheelsTop.setInverted(true);
 
         shooterWheelsTop.configNominalOutputForward(0, Constants.K_TIMEOUT_MS);
         shooterWheelsTop.configNominalOutputReverse(0, Constants.K_TIMEOUT_MS);
@@ -162,7 +162,7 @@ public class Shooter extends Subsystem {
                                                         Constants.K_TIMEOUT_MS);
 
         shooterWheelsBottom.setSensorPhase(true);
-        shooterWheelsBottom.setInverted(false);
+        shooterWheelsBottom.setInverted(true);
 
         shooterWheelsBottom.configNominalOutputForward(0, Constants.K_TIMEOUT_MS);
         shooterWheelsBottom.configNominalOutputReverse(0, Constants.K_TIMEOUT_MS);
@@ -308,6 +308,8 @@ public class Shooter extends Subsystem {
         shooterAngleMaster.set(ControlMode.MotionMagic, ticks);
 
         shooterAngleSetpoint = ticks;
+
+        System.out.println("\n\n\n*****ANGLE ENCODER TICKS******\n"+ticks+"\n\n\n");
     }
     /***********************************
      * Returns error of PID controller *

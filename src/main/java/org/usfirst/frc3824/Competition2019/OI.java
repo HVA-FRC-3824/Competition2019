@@ -75,6 +75,7 @@ public class OI {
     public JoystickButton lowGear;
     public JoystickButton driveToggleDirection;
     public JoystickButton climb;
+    public JoystickButton cameraMode;
     public Joystick joystickDrive;
     public JoystickButton latchToggle;
     public JoystickButton hatchDeployerIn;
@@ -103,7 +104,7 @@ public class OI {
         shooterSpaceShipAngle = new JoystickButton(board, 5);
         shooterSpaceShipAngle.whenPressed(new ShooterSpaceShipAngleRotate());
         shooterCargoShipAngle = new JoystickButton(board, 6);
-        shooterCargoShipAngle.whenPressed(new ShooterCargoShipAngleRotate(0));
+        shooterCargoShipAngle.whenPressed(new ShooterCargoShipAngleRotate(250));
         shooterShootDeploy = new JoystickButton(board, 11);
         shooterShootDeploy.whenReleased(new ShooterDeploy());
         shooterShootPrepare = new JoystickButton(board, 11);
@@ -111,13 +112,13 @@ public class OI {
         shooterStopSpinOut = new JoystickButton(board, 10);
         shooterStopSpinOut.whenReleased(new SetShooterSpeedStraight(0));
         shooterStartSpinOut = new JoystickButton(board, 10);
-        shooterStartSpinOut.whenPressed(new SetShooterSpeedStraight(-100));
+        shooterStartSpinOut.whenPressed(new SetShooterSpeedStraight(-1500));
         shooterStopSpinIn = new JoystickButton(board, 14);
         shooterStopSpinIn.whenReleased(new SetShooterSpeedStraight(0));
         shooterStartSpinIn = new JoystickButton(board, 14);
-        shooterStartSpinIn.whenPressed(new SetShooterSpeedStraight(100));
+        shooterStartSpinIn.whenPressed(new SetShooterSpeedStraight(1500));
         shooterIntakeAngle = new JoystickButton(board, 4);
-        shooterIntakeAngle.whenPressed(new ShooterAngleRotate(0));
+        shooterIntakeAngle.whenPressed(new ShooterAngleRotate(1325));
         shooterHomeAngle = new JoystickButton(board, 3);
         shooterHomeAngle.whenPressed(new ShooterAngleRotate(0));
         shooterStepDown = new JoystickButton(board, 2);
@@ -132,6 +133,8 @@ public class OI {
         latchToggle.whenPressed(new HatchPanelLatch());
         joystickDrive = new Joystick(0);
         
+        cameraMode = new JoystickButton(joystickDrive, 1);
+        cameraMode.whenPressed(new ToggleCamMode());
         climb = new JoystickButton(joystickDrive, 5);
         climb.whenPressed(new AllSystemsClimb());
         driveToggleDirection = new JoystickButton(joystickDrive, 8);
@@ -163,7 +166,7 @@ public class OI {
         shooterAngleBackMiddle = new JoystickButton(joystickControl, 32);
         shooterAngleBackMiddle.whenPressed(new ShooterAngleRotate(0));
         shooterAngleBackTop = new JoystickButton(joystickControl, 4);
-        shooterAngleBackTop.whenPressed(new ShooterAngleRotate(655));
+        shooterAngleBackTop.whenPressed(new ShooterAngleRotate(300));
         unshoot = new JoystickButton(joystickControl, 1);
         unshoot.whenReleased(new ShooterPusherRetract());
         shoot = new JoystickButton(joystickControl, 1);

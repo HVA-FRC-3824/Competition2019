@@ -36,14 +36,14 @@ public class Constants
      * SHOOTER ANGLE *
      *****************/
     public static final double SHOOTER_ANGLE_F                           = 0.8;
-    public static final double SHOOTER_ANGLE_P                           = 1.0;
-    public static final double SHOOTER_ANGLE_I                           = 0.01;
+    public static final double SHOOTER_ANGLE_P                           = 10.0;
+    public static final double SHOOTER_ANGLE_I                           = 0.002;
     public static final double SHOOTER_ANGLE_D                           = 0.0;
 
     public static final double SHOOTER_ANGLE_PEAK_OUTPUT                 = 1.0;
 
-    public static final int SHOOTER_ANGLE_ACCELERATION                   = 200;
-    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 200;
+    public static final int SHOOTER_ANGLE_ACCELERATION                   = 100;
+    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 100;
 
     public static final int SHOOTER_ANGLE_MINIMUM                        = -180;
     public static final int SHOOTER_ANGLE_MAXIMUM                        = 180;
@@ -54,37 +54,37 @@ public class Constants
      * SHOOTER WHEELS TOP *
      **********************/
     public static final double SHOOTER_WHEELS_TOP_F                      = 0.0;
-    public static final double SHOOTER_WHEELS_TOP_P                      = 1.0;
-    public static final double SHOOTER_WHEELS_TOP_I                      = 0.0;
+    public static final double SHOOTER_WHEELS_TOP_P                      = 0.1;
+    public static final double SHOOTER_WHEELS_TOP_I                      = 0.001;
     public static final double SHOOTER_WHEELS_TOP_D                      = 0.0;
 
     /*************************
      * SHOOTER WHEELS BOTTOM *
      *************************/
     public static final double SHOOTER_WHEELS_BOTTOM_F                   = 0.0;
-    public static final double SHOOTER_WHEELS_BOTTOM_P                   = 1.0;
-    public static final double SHOOTER_WHEELS_BOTTOM_I                   = 0.0;
+    public static final double SHOOTER_WHEELS_BOTTOM_P                   = 0.1;
+    public static final double SHOOTER_WHEELS_BOTTOM_I                   = 0.001;
     public static final double SHOOTER_WHEELS_BOTTOM_D                   = 0.0;
 
     /*********************
      * SHOOTER POSITIONS *
      *********************/
-    public static final int SHOOTER_SPACESHIP_TOP_ANGLE_POSITION         = 0;
-    public static final int SHOOTER_SPACESHIP_MIDDLE_ANGLE_POSITION      = 0;
-    public static final int SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION      = 0;
+    public static final int SHOOTER_SPACESHIP_TOP_ANGLE_POSITION         = 200;
+    public static final int SHOOTER_SPACESHIP_MIDDLE_ANGLE_POSITION      = 100;
+    public static final int SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION      = 1265;
 
     /**********************
      * SHOOTER SHOOT RPMS *
      **********************/
-    public static final int SHOOTER_TOPWHEEL_SPACESHIP_TOP_RPM           = 0;
-    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_TOP_RPM        = 0;
-    public static final int SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM        = 0;
-    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM     = 0;
-    public static final int SHOOTER_TOPWHEEL_SPACESHIP_MIDDLE_RPM        = 0;
-    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_MIDDLE_RPM     = 0;
+    public static final int SHOOTER_TOPWHEEL_SPACESHIP_TOP_RPM           = -1500;
+    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_TOP_RPM        = -1500;
+    public static final int SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM        = -1500;
+    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM     = -1500;
+    public static final int SHOOTER_TOPWHEEL_SPACESHIP_MIDDLE_RPM        = -1500;
+    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_MIDDLE_RPM     = -1500;
 
-    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_RPM               = 0;
-    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_RPM            = 0;
+    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_RPM               = -1500;
+    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_RPM            = -1500;
 
     /*****************
      * Climber Front *
