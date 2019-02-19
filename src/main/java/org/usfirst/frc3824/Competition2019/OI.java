@@ -112,11 +112,11 @@ public class OI {
         shooterStopSpinOut = new JoystickButton(board, 10);
         shooterStopSpinOut.whenReleased(new SetShooterSpeedStraight(0));
         shooterStartSpinOut = new JoystickButton(board, 10);
-        shooterStartSpinOut.whenPressed(new SetShooterSpeedStraight(-1500));
+        shooterStartSpinOut.whenPressed(new SetShooterSpeedStraight(-3000));
         shooterStopSpinIn = new JoystickButton(board, 14);
         shooterStopSpinIn.whenReleased(new SetShooterSpeedStraight(0));
         shooterStartSpinIn = new JoystickButton(board, 14);
-        shooterStartSpinIn.whenPressed(new SetShooterSpeedStraight(1500));
+        shooterStartSpinIn.whenPressed(new SetShooterSpeedStraight(3000));
         shooterIntakeAngle = new JoystickButton(board, 4);
         shooterIntakeAngle.whenPressed(new ShooterAngleRotate(1325));
         shooterHomeAngle = new JoystickButton(board, 3);
