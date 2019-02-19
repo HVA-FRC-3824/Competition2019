@@ -88,14 +88,13 @@ public class Chassis extends Subsystem {
         
         differentialDrive = new DifferentialDrive(left, right);
         addChild("Differential Drive",differentialDrive);
-        differentialDrive.setSafetyEnabled(false);
+        differentialDrive.setSafetyEnabled(true);
         differentialDrive.setExpiration(0.1);
         differentialDrive.setMaxOutput(1.0);
 
         
         gearShift = new Solenoid(0, 0);
         addChild("GearShift",gearShift);
-        
         
         
         compressor = new Compressor(0);
