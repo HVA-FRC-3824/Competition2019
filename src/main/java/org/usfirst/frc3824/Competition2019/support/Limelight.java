@@ -23,7 +23,7 @@ public class Limelight {
     private static NetworkTableEntry camMode;
     private static NetworkTableEntry ledMode;
     private static NetworkTableEntry pipeline;
-    private static NetworkTableEntry stream;
+    private static NetworkTableEntry streamMode;
     private static CamMode lastCamMode;
 
     public enum CamMode {
@@ -75,7 +75,7 @@ public class Limelight {
         ledMode = table.getEntry("ledMode");  // 0: pipeline, 1: off, 2: blink, 3: on
         camMode = table.getEntry("camMode");  // 0: vision processing, 1: driver camera
         pipeline = table.getEntry("pipeline");    // 0-9
-        stream = table.getEntry("stream"); // 0:standard, 1:pip Main, 2:pip secondary
+        streamMode = table.getEntry("stream"); // 0:standard, 1:pip Main, 2:pip secondary
     }
 
     public double getTargetOffset_x(){
