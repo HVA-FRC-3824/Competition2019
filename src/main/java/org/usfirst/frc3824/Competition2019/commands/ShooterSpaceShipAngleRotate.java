@@ -39,17 +39,39 @@ public class ShooterSpaceShipAngleRotate extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        if (Robot.oi.board.getRawButton(7)) // 7 = top
+        if (Robot.oi.board.getRawButton(9)) // back
         {
-            Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_TOP_ANGLE_POSITION);
+            if (Robot.oi.board.getRawButton(7)) // 7 = top
+            {
+                Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_BACK_TOP_ANGLE_POSITION);
+            }
+            else if (Robot.oi.board.getRawButton(19)) // 19 = bottom
+            {
+                Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION);
+            }
+            else // if neither = middle
+            {
+                Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_BACK_MIDDLE_ANGLE_POSITION);
+            }
         }
-        else if (Robot.oi.board.getRawButton(19)) // 19 = bottom
+        else if (Robot.oi.board.getRawButton(8)) // front
         {
-            Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION);
+            if (Robot.oi.board.getRawButton(7)) // 7 = top
+            {
+                Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_FRONT_TOP_ANGLE_POSITION);
+            }
+            else if (Robot.oi.board.getRawButton(19)) // 19 = bottom
+            {
+                Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION);
+            }
+            else // if neither = middle
+            {
+                Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_FRONT_MIDDLE_ANGLE_POSITION);
+            }
         }
-        else // if neither = middle
+        else
         {
-            Robot.shooter.setAngleEncoder(Constants.SHOOTER_SPACESHIP_MIDDLE_ANGLE_POSITION);
+            System.out.println("\n******NO POSITION SELECTED (FRONT/LEFT)******\n");
         }
         Robot.shooter.setShooterType(true);
     }

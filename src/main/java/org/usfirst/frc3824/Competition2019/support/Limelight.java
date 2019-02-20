@@ -108,6 +108,18 @@ public class Limelight {
         setCamMode(lastCamMode);
     }
 
+    public void toggleCamMode()
+    {
+        if (getCamMode() == CamMode.DRIVER)
+        {
+            setCamModeVision();
+        }
+        else
+        {
+            setCamModeDriver();
+        }
+    }
+
     public int getCurrentPipeline(){
         return pipeline.getNumber(0).intValue();
     }

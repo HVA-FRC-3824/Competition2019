@@ -104,7 +104,7 @@ public class OI {
         shooterSpaceShipAngle = new JoystickButton(board, 5);
         shooterSpaceShipAngle.whenPressed(new ShooterSpaceShipAngleRotate());
         shooterCargoShipAngle = new JoystickButton(board, 6);
-        shooterCargoShipAngle.whenPressed(new ShooterCargoShipAngleRotate(300));
+        shooterCargoShipAngle.whenPressed(new ShooterCargoShipAngleRotate());
         shooterShootDeploy = new JoystickButton(board, 11);
         shooterShootDeploy.whenReleased(new ShooterDeploy());
         shooterShootPrepare = new JoystickButton(board, 11);
@@ -112,19 +112,19 @@ public class OI {
         shooterStopSpinOut = new JoystickButton(board, 10);
         shooterStopSpinOut.whenReleased(new SetShooterSpeedStraight(0));
         shooterStartSpinOut = new JoystickButton(board, 10);
-        shooterStartSpinOut.whenPressed(new SetShooterSpeedStraight(-1000));
+        shooterStartSpinOut.whenPressed(new SetShooterSpeedStraight(-2000));
         shooterStopSpinIn = new JoystickButton(board, 14);
         shooterStopSpinIn.whenReleased(new SetShooterSpeedStraight(0));
         shooterStartSpinIn = new JoystickButton(board, 14);
-        shooterStartSpinIn.whenPressed(new SetShooterSpeedStraight(1000));
+        shooterStartSpinIn.whenPressed(new SetShooterSpeedStraight(2000));
         shooterIntakeAngle = new JoystickButton(board, 4);
-        shooterIntakeAngle.whenPressed(new ShooterAngleRotate(1325));
+        shooterIntakeAngle.whenPressed(new ShooterAngleRotate(12300));
         shooterHomeAngle = new JoystickButton(board, 3);
         shooterHomeAngle.whenPressed(new ShooterAngleRotate(0));
         shooterStepDown = new JoystickButton(board, 2);
-        shooterStepDown.whenPressed(new ShooterStepDown(25));
+        shooterStepDown.whenPressed(new ShooterStepDown(250));
         shooterStepUp = new JoystickButton(board, 1);
-        shooterStepUp.whenPressed(new ShooterStepUp(25));
+        shooterStepUp.whenPressed(new ShooterStepUp(250));
         hatchDeployerOut = new JoystickButton(board, 15);
         hatchDeployerOut.whenPressed(new HatchPanelDeploy(true));
         hatchDeployerIn = new JoystickButton(board, 15);
@@ -166,7 +166,7 @@ public class OI {
         shooterAngleBackMiddle = new JoystickButton(joystickControl, 32);
         shooterAngleBackMiddle.whenPressed(new ShooterAngleRotate(0));
         shooterAngleBackTop = new JoystickButton(joystickControl, 4);
-        shooterAngleBackTop.whenPressed(new ShooterAngleRotate(655));
+        shooterAngleBackTop.whenPressed(new ShooterAngleRotate(800));
         unshoot = new JoystickButton(joystickControl, 1);
         unshoot.whenReleased(new ShooterPusherRetract());
         shoot = new JoystickButton(joystickControl, 1);
@@ -175,14 +175,14 @@ public class OI {
         stopShooterWheelsCargo.whenReleased(new SetShooterSpeedStraight(0));
         straightSpinShooterWheels = new JoystickButton(joystickControl, 32);
         straightSpinShooterWheels.whenPressed(new SetShooterSpeedStraight(0));
-        frontClimbStop = new JoystickButton(joystickControl, 32);
+        frontClimbStop = new JoystickButton(joystickControl, 11);
         frontClimbStop.whenPressed(new ClimberFrontSetPosition(0));
-        frontClimbStart = new JoystickButton(joystickControl, 32);
-        frontClimbStart.whenPressed(new ClimberFrontSetPosition(6000));
-        backClimbStop = new JoystickButton(joystickControl, 32);
+        frontClimbStart = new JoystickButton(joystickControl, 6);
+        frontClimbStart.whenPressed(new ClimberFrontSetPosition(15000));
+        backClimbStop = new JoystickButton(joystickControl, 10);
         backClimbStop.whenPressed(new ClimberBackSetPosition(0));
-        backClimbStart = new JoystickButton(joystickControl, 32);
-        backClimbStart.whenPressed(new ClimberBackSetPosition(6000));
+        backClimbStart = new JoystickButton(joystickControl, 7);
+        backClimbStart.whenPressed(new ClimberBackSetPosition(15000));
 
 
         // SmartDashboard Buttons

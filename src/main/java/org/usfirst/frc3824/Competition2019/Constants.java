@@ -35,15 +35,15 @@ public class Constants
     /*****************
      * SHOOTER ANGLE *
      *****************/
-    public static final double SHOOTER_ANGLE_F                           = 0.8;
-    public static final double SHOOTER_ANGLE_P                           = 10.0;
-    public static final double SHOOTER_ANGLE_I                           = 0.002;
+    public static final double SHOOTER_ANGLE_F                           = 0.08;
+    public static final double SHOOTER_ANGLE_P                           = 1.0;
+    public static final double SHOOTER_ANGLE_I                           = 0.0002;
     public static final double SHOOTER_ANGLE_D                           = 0.0;
 
     public static final double SHOOTER_ANGLE_PEAK_OUTPUT                 = 1.0;
 
-    public static final int SHOOTER_ANGLE_ACCELERATION                   = 100;
-    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 100;
+    public static final int SHOOTER_ANGLE_ACCELERATION                   = 1000;
+    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 1000;
 
     public static final int SHOOTER_ANGLE_MINIMUM                        = -180;
     public static final int SHOOTER_ANGLE_MAXIMUM                        = 180;
@@ -69,22 +69,27 @@ public class Constants
     /*********************
      * SHOOTER POSITIONS *
      *********************/
-    public static final int SHOOTER_SPACESHIP_TOP_ANGLE_POSITION         = 200;
-    public static final int SHOOTER_SPACESHIP_MIDDLE_ANGLE_POSITION      = 100;
-    public static final int SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION      = 1265;
+    public static final int SHOOTER_SPACESHIP_BACK_TOP_ANGLE_POSITION         = 2000;
+    public static final int SHOOTER_SPACESHIP_BACK_MIDDLE_ANGLE_POSITION      = 1000;
+    public static final int SHOOTER_SPACESHIP_FRONT_TOP_ANGLE_POSITION        = 6750;
+    public static final int SHOOTER_SPACESHIP_FRONT_MIDDLE_ANGLE_POSITION     = 7800;
+    public static final int SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION      = 11420;
+
+    public static final int SHOOTER_CARGOSHIP_FRONT_ANGLE_POSITION       = 6050;
+    public static final int SHOOTER_CARGOSHIP_BACK_ANGLE_POSITION        = 3000;
 
     /**********************
      * SHOOTER SHOOT RPMS *
      **********************/
-    public static final int SHOOTER_TOPWHEEL_SPACESHIP_TOP_RPM           = -1500;
-    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_TOP_RPM        = -1500;
-    public static final int SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM        = -1500;
-    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM     = -1500;
-    public static final int SHOOTER_TOPWHEEL_SPACESHIP_MIDDLE_RPM        = -1500;
-    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_MIDDLE_RPM     = -1500;
+    public static final int SHOOTER_TOPWHEEL_SPACESHIP_TOP_RPM           = -3000;
+    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_TOP_RPM        = -3000;
+    public static final int SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM        = -200;
+    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM     = -200;
+    public static final int SHOOTER_TOPWHEEL_SPACESHIP_MIDDLE_RPM        = -1000;
+    public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_MIDDLE_RPM     = -1000;
 
-    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_RPM               = -1500;
-    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_RPM            = -1500;
+    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_RPM               = -200;
+    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_RPM            = -200;
 
     /*****************
      * Climber Front *
@@ -97,7 +102,7 @@ public class Constants
     public static final double CLIMBER_FRONT_PEAK_OUTPUT                 = 1.0;
 
     public static final int CLIMBER_FRONT_ACCELERATION                   = 1000;
-    public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 50;
+    public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 500;
 
     /****************
      * Climber Back *
@@ -110,7 +115,7 @@ public class Constants
     public static final double CLIMBER_BACK_PEAK_OUTPUT                 = 1.0;
 
     public static final int CLIMBER_BACK_ACCELERATION                   = 1000;
-    public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 50;
+    public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 500;
 
     /*********************
      * All Systems Climb *
@@ -120,7 +125,7 @@ public class Constants
     public static final int ALL_FRONT_CLIMBER_EXTEND_POSITION           = 6000;
     public static final int ALL_BACK_CLIMBER_EXTEND_POSITION            = 6000;
     public static final int ALL_SHOOTER_PULL_IN_POSITION                = 4500;
-    public static final int ALL_SHOOTER_PULL_IN_RPM                     = 50;
+    public static final int ALL_SHOOTER_PULL_IN_RPM                     = -1000;
     public static final double ALL_CHASSIS_PLATFORM_POWER               = 0.25;
     public static final int ALL_FRONT_CLIMBER_RETRACT_POSITION          = 50;
     public static final int ALL_BACK_CLIMBER_RETRACT_POSITION           = 50;

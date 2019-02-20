@@ -12,9 +12,6 @@
 package org.usfirst.frc3824.Competition2019;
 
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -76,11 +73,7 @@ public class Robot extends TimedRobot {
         
         // begin capturing of USB cameras
         CameraServer.getInstance().startAutomaticCapture(0);
-        // CameraServer.getInstance().startAutomaticCapture(1);
-        // // limelight camera
-        // NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-        // NetworkTableEntry camMode = table.getEntry("camMode");
-        // camMode.setNumber(1);
+        CameraServer.getInstance().startAutomaticCapture(1);
 
         // Create SmartDashboard F,P,I,D,Velocity,Acceleration for calibrating Shooter Angle PID's
         SmartDashboard.putNumber("SHOOTER ANGLE F", 0.0);
@@ -90,15 +83,15 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("SHOOTER ANGLE CRUISE VELOCITY", 0);
         SmartDashboard.putNumber("SHOOTER ANGLE ACCELERATION", 0);
 
-        SmartDashboard.putNumber("SHOOTER TOP F", 0.0);
-        SmartDashboard.putNumber("SHOOTER TOP P", 0.0);
-        SmartDashboard.putNumber("SHOOTER TOP I", 0.0);
-        SmartDashboard.putNumber("SHOOTER TOP D", 0.0);
+        // SmartDashboard.putNumber("SHOOTER TOP F", 0.0);
+        // SmartDashboard.putNumber("SHOOTER TOP P", 0.0);
+        // SmartDashboard.putNumber("SHOOTER TOP I", 0.0);
+        // SmartDashboard.putNumber("SHOOTER TOP D", 0.0);
 
-        SmartDashboard.putNumber("SHOOTER BOTTOM F", 0.0);
-        SmartDashboard.putNumber("SHOOTER BOTTOM P", 0.0);
-        SmartDashboard.putNumber("SHOOTER BOTTOM I", 0.0);
-        SmartDashboard.putNumber("SHOOTER BOTTOM D", 0.0);
+        // SmartDashboard.putNumber("SHOOTER BOTTOM F", 0.0);
+        // SmartDashboard.putNumber("SHOOTER BOTTOM P", 0.0);
+        // SmartDashboard.putNumber("SHOOTER BOTTOM I", 0.0);
+        // SmartDashboard.putNumber("SHOOTER BOTTOM D", 0.0);
 
         SmartDashboard.putNumber("CLIMBER FRONT F", 0.0);
         SmartDashboard.putNumber("CLIMBER FRONT P", 0.0);
@@ -129,6 +122,8 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
 
         displaySmartDashboardInfo();
+
+        chassis.turnOnDirectionLights();
     }
 
     @Override
@@ -155,6 +150,9 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+
+        // set direction lights to drive direction
+        Robot.chassis.setDirectionLights();
     }
 
     /**
@@ -173,17 +171,17 @@ public class Robot extends TimedRobot {
     {
         SmartDashboard.putData("Auto mode", chooser);
 
-        SmartDashboard.putNumber("Ultrasonic: ", chassis.getUltrasonicDistance());
-        SmartDashboard.putNumber("Gyro Angle: ", chassis.getGyroAngle());
+        // SmartDashboard.putNumber("Ultrasonic: ", chassis.getUltrasonicDistance());
+        // SmartDashboard.putNumber("Gyro Angle: ", chassis.getGyroAngle());
 
-        // Shooter Data
-        SmartDashboard.putNumber("Wheel Top Velocity", shooter.getWheelTopVelocity());
-        SmartDashboard.putNumber("Wheel Top Motor Percent Output", shooter.getWheelsTopMotorOutput());
-        SmartDashboard.putNumber("Wheel Top Error", shooter.getWheelTopError());
+        // // Shooter Data
+        // SmartDashboard.putNumber("Wheel Top Velocity", shooter.getWheelTopVelocity());
+        // SmartDashboard.putNumber("Wheel Top Motor Percent Output", shooter.getWheelsTopMotorOutput());
+        // SmartDashboard.putNumber("Wheel Top Error", shooter.getWheelTopError());
         
-        SmartDashboard.putNumber("Wheel Bottom Velocity", shooter.getWheelBottomVelocity());
-        SmartDashboard.putNumber("Wheel Bottom Motor Percent Output", shooter.getWheelsBottomMotorOutput());
-        SmartDashboard.putNumber("Wheel Bottom Error", shooter.getWheelBottomError());
+        // SmartDashboard.putNumber("Wheel Bottom Velocity", shooter.getWheelBottomVelocity());
+        // SmartDashboard.putNumber("Wheel Bottom Motor Percent Output", shooter.getWheelsBottomMotorOutput());
+        // SmartDashboard.putNumber("Wheel Bottom Error", shooter.getWheelBottomError());
 
         SmartDashboard.putNumber("Shooter Angle Error", shooter.getAngleError());
         SmartDashboard.putNumber("Shooter Angle MotorPercent", shooter.getAngleMotorPercent());
