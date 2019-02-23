@@ -309,7 +309,6 @@ public class Shooter extends Subsystem {
 
         shooterAngleSetpoint = ticks;
 
-        System.out.println("\n\n\n*****ANGLE ENCODER TICKS******\n"+ticks+"\n\n\n");
     }
     /***********************************
      * Returns error of PID controller *

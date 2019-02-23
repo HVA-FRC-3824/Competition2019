@@ -43,6 +43,8 @@ public class Robot extends TimedRobot {
 
     public static Constants constants;
 
+    private static boolean killClimber = false;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -74,6 +76,9 @@ public class Robot extends TimedRobot {
         // begin capturing of USB cameras
         CameraServer.getInstance().startAutomaticCapture(0);
         CameraServer.getInstance().startAutomaticCapture(1);
+
+        // set kill climber to false
+        killClimber = false;
 
         // Create SmartDashboard F,P,I,D,Velocity,Acceleration for calibrating Shooter Angle PID's
         SmartDashboard.putNumber("SHOOTER ANGLE F", 0.0);
@@ -202,5 +207,13 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Climber Back Position", climber.getBackPosition());
         SmartDashboard.putNumber("Climber Back Error", climber.getBackError());
         SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackVoltage());
+    }
+    public static void setKillClimber(boolean status)
+    {
+        killClimber = status;
+    }
+    public static boolean getKillClimber()
+    {
+        return killClimber;
     }
 }

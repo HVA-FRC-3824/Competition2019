@@ -40,7 +40,6 @@ public class ShooterAngleRotate extends Command {
     @Override
     protected void initialize() {
         Robot.shooter.setAngleEncoder(m_position);
-        System.out.println("\n\n\n*****ANGLE ENCODER SETPOINT******\n"+m_position+"\n\n\n");
     }
 
     // Called repeatedly when this Command is scheduled to run

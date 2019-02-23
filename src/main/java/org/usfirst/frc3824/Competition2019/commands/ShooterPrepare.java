@@ -42,29 +42,60 @@ public class ShooterPrepare extends Command {
         // WHEELS: true = top wheels, false = bottom wheels
         // SHOOTER TYPE: true = spaceship, false = cargoship
         // RAW BUTTONS: 7 = top, 19 = bottom, neither = middle
+        // RAW BUTTONS: 8 = front, 9 = back, neither = middle
         if (Robot.shooter.getShooterType())
         {
-            if (Robot.oi.board.getRawButton(7))
+            if (Robot.oi.board.getRawButton(8)) // front
             {
-                Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_TOP_RPM, true);
-                Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_TOP_RPM, false);
-            }
-                
-            else if (Robot.oi.board.getRawButton(19))
+                if (Robot.oi.board.getRawButton(7)) // top
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_FRONT_TOP_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_FRONT_TOP_RPM, false);
+                }
+                    
+                else if (Robot.oi.board.getRawButton(19)) // bottom
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM, false);
+                }
+                else // middle
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_FRONT_MIDDLE_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_FRONT_MIDDLE_RPM, false);
+                }
+            } 
+            else if (Robot.oi.board.getRawButton(9)) // back
             {
-                Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM, true);
-                Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM, false);
-            }
-            else
-            {
-                Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_MIDDLE_RPM, true);
-                Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_MIDDLE_RPM, false);
+                if (Robot.oi.board.getRawButton(7)) // top
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BACK_TOP_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BACK_TOP_RPM, false);
+                }
+                    
+                else if (Robot.oi.board.getRawButton(19)) // bottom
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM, false);
+                }
+                else // middle
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BACK_MIDDLE_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BACK_MIDDLE_RPM, false);
+                }
             }
         }
         else
         {
-            Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_RPM, true);
-            Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_RPM, false);
+            if (Robot.oi.board.getRawButton(8)) // front
+            {
+                Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_FRONT_RPM, true);
+                Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_FRONT_RPM, false);
+            }
+            else if (Robot.oi.board.getRawButton(9)) // back
+            {
+                Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM, true);
+                Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM, false);
+            }
         }
     }
 

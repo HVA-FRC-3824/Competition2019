@@ -73,9 +73,12 @@ public class OI {
     public Joystick joystickControl;
     public JoystickButton highGear;
     public JoystickButton lowGear;
-    public JoystickButton driveToggleDirection;
-    public JoystickButton climb;
+    public JoystickButton climbCenter;
+    public JoystickButton climbSide;
+    public JoystickButton killClimb;
+    public JoystickButton reviveClimb;
     public JoystickButton cameraMode;
+    public JoystickButton driveToggleDirection;
     public Joystick joystickDrive;
     public JoystickButton latchToggle;
     public JoystickButton hatchDeployerIn;
@@ -133,12 +136,18 @@ public class OI {
         latchToggle.whenPressed(new HatchPanelLatch());
         joystickDrive = new Joystick(0);
         
-        cameraMode = new JoystickButton(joystickDrive, 1);
-        cameraMode.whenPressed(new ToggleCamMode());
-        climb = new JoystickButton(joystickDrive, 5);
-        climb.whenPressed(new AllSystemsClimb());
-        driveToggleDirection = new JoystickButton(joystickDrive, 8);
+        driveToggleDirection = new JoystickButton(joystickDrive, 1);
         driveToggleDirection.whenPressed(new ToggleDriveDirection());
+        cameraMode = new JoystickButton(joystickDrive, 11);
+        cameraMode.whenPressed(new ToggleCamMode());
+        reviveClimb = new JoystickButton(joystickDrive, 4);
+        reviveClimb.whenPressed(new ReviveClimber());
+        killClimb = new JoystickButton(joystickDrive, 3);
+        killClimb.whenPressed(new KillClimber());
+        climbSide = new JoystickButton(joystickDrive, 6);
+        climbSide.whenPressed(new AllSystemsClimbSide());
+        climbCenter = new JoystickButton(joystickDrive, 5);
+        climbCenter.whenPressed(new AllSystemsClimbCenter());
         lowGear = new JoystickButton(joystickDrive, 2);
         lowGear.whenReleased(new ChassisGearShift(false));
         highGear = new JoystickButton(joystickDrive, 2);

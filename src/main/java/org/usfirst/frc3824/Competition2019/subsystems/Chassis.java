@@ -118,6 +118,9 @@ public class Chassis extends Subsystem {
         m_driveDirection = 1;
 
         // initialize gear shift in low gear
+        /******************************************************************************
+         * NOTE: CURRENT GEAR SHIFT CODE IS INCORRECT, BUT CORRECT WAY DOES NOT WORK. *
+         ******************************************************************************/
         gearShift.set(true);
 
         resetNavXGyro();
