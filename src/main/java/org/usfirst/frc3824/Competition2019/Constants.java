@@ -40,8 +40,6 @@ public class Constants
     public static final double SHOOTER_ANGLE_I                           = 0.0002;
     public static final double SHOOTER_ANGLE_D                           = 0.0;
 
-    public static final double SHOOTER_ANGLE_PEAK_OUTPUT                 = 1.0;
-
     public static final int SHOOTER_ANGLE_ACCELERATION                   = 1000;
     public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 1000;
 
@@ -105,8 +103,6 @@ public class Constants
     public static final double CLIMBER_FRONT_I                           = 0.01;
     public static final double CLIMBER_FRONT_D                           = 0.0;
 
-    public static final double CLIMBER_FRONT_PEAK_OUTPUT                 = 1.0;
-
     public static final int CLIMBER_FRONT_ACCELERATION                   = 1000;
     public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 500;
 
@@ -118,8 +114,6 @@ public class Constants
     public static final double CLIMBER_BACK_I                           = 0.01;
     public static final double CLIMBER_BACK_D                           = 0.0;
 
-    public static final double CLIMBER_BACK_PEAK_OUTPUT                 = 1.0;
-
     public static final int CLIMBER_BACK_ACCELERATION                   = 1000;
     public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 500;
 
@@ -128,26 +122,45 @@ public class Constants
      ****************************/
     public static final int ALL_CENTER_SHOOTER_CLIMB_START_POSITION            = 4500;
     public static final double ALL_CENTER_CHASSIS_INITIAL_POWER                = 0.25; 
-    public static final int ALL_CENTER_FRONT_CLIMBER_EXTEND_POSITION           = 6000;
-    public static final int ALL_CENTER_BACK_CLIMBER_EXTEND_POSITION            = 6000;
-    public static final int ALL_CENTER_SHOOTER_PULL_IN_POSITION                = 4500;
-    public static final int ALL_CENTER_SHOOTER_PULL_IN_RPM                     = -1000;
+    public static final int ALL_CENTER_CHASSIS_INITIAL_TIME                    = 1;
+    public static final int ALL_CENTER_FRONT_CLIMBER_EXTEND_POSITION           = 15000;
+    public static final int ALL_CENTER_BACK_CLIMBER_EXTEND_POSITION            = 15000;
+    public static final int ALL_CENTER_SHOOTER_PULL_IN_POSITION                = 13000;
+    public static final int ALL_CENTER_SHOOTER_PULL_IN_RPM                     = -2000;
     public static final double ALL_CENTER_CHASSIS_PLATFORM_POWER               = 0.25;
-    public static final int ALL_CENTER_FRONT_CLIMBER_RETRACT_POSITION          = 50;
     public static final int ALL_CENTER_BACK_CLIMBER_RETRACT_POSITION           = 50;
+    public static final int ALL_CENTER_FRONT_CLIMBER_RETRACT_POSITION          = 50;
     public static final int ALL_CENTER_SHOOTER_HOME_POSITION                   = 0;
+
+    public static final int ALL_CENTER_CHASSIS_PLATFORM_TIME                   = 2;
+    public static final double ALL_CENTER_CHASSIS_TIMEOUT                      = 3.0;
 
     /**************************
      * All Systems Climb Side *
      **************************/
     public static final int ALL_SIDE_SHOOTER_CLIMB_START_POSITION            = 4500;
     public static final double ALL_SIDE_CHASSIS_INITIAL_POWER                = 0.25; 
-    public static final int ALL_SIDE_FRONT_CLIMBER_EXTEND_POSITION           = 6000;
-    public static final int ALL_SIDE_BACK_CLIMBER_EXTEND_POSITION            = 6000;
-    public static final int ALL_SIDE_SHOOTER_PULL_IN_POSITION                = 4500;
-    public static final int ALL_SIDE_SHOOTER_PULL_IN_RPM                     = -1000;
+    public static final int ALL_SIDE_CHASSIS_INITIAL_TIME                    = 1;
+    public static final int ALL_SIDE_FRONT_CLIMBER_EXTEND_POSITION           = 5000;
+    public static final int ALL_SIDE_BACK_CLIMBER_EXTEND_POSITION            = 5000;
+    public static final int ALL_SIDE_SHOOTER_PULL_IN_POSITION                = 13000;
+    public static final int ALL_SIDE_SHOOTER_PULL_IN_RPM                     = -2000;
     public static final double ALL_SIDE_CHASSIS_PLATFORM_POWER               = 0.25;
-    public static final int ALL_SIDE_FRONT_CLIMBER_RETRACT_POSITION          = 50;
     public static final int ALL_SIDE_BACK_CLIMBER_RETRACT_POSITION           = 50;
+    public static final int ALL_SIDE_FRONT_CLIMBER_RETRACT_POSITION          = 50;
     public static final int ALL_SIDE_SHOOTER_HOME_POSITION                   = 0;
+
+    public static final int ALL_SIDE_CHASSIS_PLATFORM_TIME                   = 2;
+    public static final double ALL_SIDE_CHASSIS_TIMEOUT                      = 3.0;
+
+    /***************************
+     * HATCHPANEL PICKUP ANGLE *
+     ***************************/
+    public static final double HATCH_PICKUP_ANGLE_F                          = 0.0;
+    public static final double HATCH_PICKUP_ANGLE_P                          = 0.0;
+    public static final double HATCH_PICKUP_ANGLE_I                          = 0.0;
+    public static final double HATCH_PICKUP_ANGLE_D                          = 0.0;
+
+    public static final int HATCH_PICKUP_ANGLE_CRUISE_VELOCITY               = 0;
+    public static final int HATCH_PICKUP_ANGLE_ACCELERATION                  = 0;
 }

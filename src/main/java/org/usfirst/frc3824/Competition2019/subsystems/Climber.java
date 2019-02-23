@@ -49,7 +49,7 @@ public class Climber extends Subsystem {
     private double climberFrontPIDParamP = Constants.CLIMBER_FRONT_P;
     private double climberFrontPIDParamI = Constants.CLIMBER_FRONT_I;
     private double climberFrontPIDParamD = Constants.CLIMBER_FRONT_D;
-    private int    climberFrontCruisevelocity = Constants.CLIMBER_FRONT_CRUISE_VELOCITY;
+    private int    climberFrontCruiseVelocity = Constants.CLIMBER_FRONT_CRUISE_VELOCITY;
     private int    climberFrontAcceleration   = Constants.CLIMBER_FRONT_ACCELERATION;
 
     private double climberFrontSetpoint = 0;
@@ -58,7 +58,7 @@ public class Climber extends Subsystem {
     private double climberBackPIDParamP = Constants.CLIMBER_BACK_P;
     private double climberBackPIDParamI = Constants.CLIMBER_BACK_I;
     private double climberBackPIDParamD = Constants.CLIMBER_BACK_D;
-    private int    climberBackCruisevelocity = Constants.CLIMBER_BACK_CRUISE_VELOCITY;
+    private int    climberBackCruiseVelocity = Constants.CLIMBER_BACK_CRUISE_VELOCITY;
     private int    climberBackAcceleration   = Constants.CLIMBER_BACK_ACCELERATION;
 
     private double climberBackSetpoint = 0;
@@ -113,7 +113,7 @@ public class Climber extends Subsystem {
         talonSRX.config_kI(Constants.K_SLOT_IDX, climberFrontPIDParamI, Constants.K_TIMEOUT_MS);
         talonSRX.config_kD(Constants.K_SLOT_IDX, climberFrontPIDParamD, Constants.K_TIMEOUT_MS);
 
-        talonSRX.configMotionCruiseVelocity(climberFrontCruisevelocity, Constants.K_TIMEOUT_MS);
+        talonSRX.configMotionCruiseVelocity(climberFrontCruiseVelocity, Constants.K_TIMEOUT_MS);
         talonSRX.configMotionAcceleration(climberFrontAcceleration, Constants.K_TIMEOUT_MS);
 
         talonSRX.setSelectedSensorPosition(0, Constants.K_PID_LOOP_IDX, Constants.K_TIMEOUT_MS);
@@ -191,11 +191,11 @@ public class Climber extends Subsystem {
     {
         return climberFrontRight.getClosedLoopError();
     }
-    public double getFrontVoltage()
+    public double getFrontMotorOutput()
     {
         return climberFrontLeft.getMotorOutputPercent();
     }
-    public double getBackVoltage()
+    public double getBackMotorOutput()
     {
         return climberBackLeft.getMotorOutputPercent();
     }
@@ -210,7 +210,7 @@ public class Climber extends Subsystem {
         climberFrontPIDParamP = SmartDashboard.getNumber("CLIMBER FRONT P", Constants.CLIMBER_FRONT_P);
         climberFrontPIDParamI = SmartDashboard.getNumber("CLIMBER FRONT I", Constants.CLIMBER_FRONT_I);
         climberFrontPIDParamD = SmartDashboard.getNumber("CLIMBER FRONT D", Constants.CLIMBER_FRONT_D);
-        climberFrontCruisevelocity = (int)SmartDashboard.getNumber("CLIMBER FRONT CRUISE VELOCITY", Constants.CLIMBER_FRONT_CRUISE_VELOCITY);
+        climberFrontCruiseVelocity = (int)SmartDashboard.getNumber("CLIMBER FRONT CRUISE VELOCITY", Constants.CLIMBER_FRONT_CRUISE_VELOCITY);
         climberFrontAcceleration = (int)SmartDashboard.getNumber("CLIMBER FRONT ACCELERATION", Constants.CLIMBER_FRONT_ACCELERATION);
 
         climberFrontLeft.config_kF(0, climberFrontPIDParamF, Constants.K_TIMEOUT_MS);
@@ -218,7 +218,7 @@ public class Climber extends Subsystem {
         climberFrontLeft.config_kI(0, climberFrontPIDParamI, Constants.K_TIMEOUT_MS);
         climberFrontLeft.config_kD(0, climberFrontPIDParamD, Constants.K_TIMEOUT_MS);
 
-        climberFrontLeft.configMotionCruiseVelocity(climberFrontCruisevelocity, Constants.K_TIMEOUT_MS);
+        climberFrontLeft.configMotionCruiseVelocity(climberFrontCruiseVelocity, Constants.K_TIMEOUT_MS);
         climberFrontLeft.configMotionAcceleration(climberFrontAcceleration, Constants.K_TIMEOUT_MS);
     }
     public void setBackPID()
@@ -227,7 +227,7 @@ public class Climber extends Subsystem {
         climberBackPIDParamP = SmartDashboard.getNumber("CLIMBER BACK P", Constants.CLIMBER_BACK_P);
         climberBackPIDParamI = SmartDashboard.getNumber("CLIMBER BACK I", Constants.CLIMBER_BACK_I);
         climberBackPIDParamD = SmartDashboard.getNumber("CLIMBER BACK D", Constants.CLIMBER_BACK_D);
-        climberBackCruisevelocity = (int)SmartDashboard.getNumber("CLIMBER BACK CRUISE VELOCITY", Constants.CLIMBER_BACK_CRUISE_VELOCITY);
+        climberBackCruiseVelocity = (int)SmartDashboard.getNumber("CLIMBER BACK CRUISE VELOCITY", Constants.CLIMBER_BACK_CRUISE_VELOCITY);
         climberBackAcceleration = (int)SmartDashboard.getNumber("CLIMBER BACK ACCELERATION", Constants.CLIMBER_BACK_ACCELERATION);
 
         climberBackLeft.config_kF(0, climberBackPIDParamF, Constants.K_TIMEOUT_MS);
@@ -235,7 +235,7 @@ public class Climber extends Subsystem {
         climberBackLeft.config_kI(0, climberBackPIDParamI, Constants.K_TIMEOUT_MS);
         climberBackLeft.config_kD(0, climberBackPIDParamD, Constants.K_TIMEOUT_MS);
 
-        climberBackLeft.configMotionCruiseVelocity(climberBackCruisevelocity, Constants.K_TIMEOUT_MS);
+        climberBackLeft.configMotionCruiseVelocity(climberBackCruiseVelocity, Constants.K_TIMEOUT_MS);
         climberBackLeft.configMotionAcceleration(climberBackAcceleration, Constants.K_TIMEOUT_MS);
     }
 }

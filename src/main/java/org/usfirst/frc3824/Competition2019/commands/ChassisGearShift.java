@@ -40,13 +40,9 @@ public class ChassisGearShift extends Command {
     @Override
     protected void initialize() {
         if (m_highGear)
-        {
             Robot.chassis.shiftHighGear();
-        }
         else 
-        {
             Robot.chassis.shiftLowGear();
-        }
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -98,19 +98,26 @@ public class Robot extends TimedRobot {
         // SmartDashboard.putNumber("SHOOTER BOTTOM I", 0.0);
         // SmartDashboard.putNumber("SHOOTER BOTTOM D", 0.0);
 
-        SmartDashboard.putNumber("CLIMBER FRONT F", 0.0);
-        SmartDashboard.putNumber("CLIMBER FRONT P", 0.0);
-        SmartDashboard.putNumber("CLIMBER FRONT I", 0.0);
-        SmartDashboard.putNumber("CLIMBER FRONT D", 0.0);
-        SmartDashboard.putNumber("CLIMBER FRONT CRUISE VELOCITY", 0);
-        SmartDashboard.putNumber("CLIMBER FRONT ACCELERATION", 0);
+        // SmartDashboard.putNumber("CLIMBER FRONT F", 0.0);
+        // SmartDashboard.putNumber("CLIMBER FRONT P", 0.0);
+        // SmartDashboard.putNumber("CLIMBER FRONT I", 0.0);
+        // SmartDashboard.putNumber("CLIMBER FRONT D", 0.0);
+        // SmartDashboard.putNumber("CLIMBER FRONT CRUISE VELOCITY", 0);
+        // SmartDashboard.putNumber("CLIMBER FRONT ACCELERATION", 0);
 
-        SmartDashboard.putNumber("CLIMBER BACK F", 0.0);
-        SmartDashboard.putNumber("CLIMBER BACK P", 0.0);
-        SmartDashboard.putNumber("CLIMBER BACK I", 0.0);
-        SmartDashboard.putNumber("CLIMBER BACK D", 0.0);
-        SmartDashboard.putNumber("CLIMBER BACK CRUISE VELOCITY", 0);
-        SmartDashboard.putNumber("CLIMBER BACK ACCELERATION", 0);
+        // SmartDashboard.putNumber("CLIMBER BACK F", 0.0);
+        // SmartDashboard.putNumber("CLIMBER BACK P", 0.0);
+        // SmartDashboard.putNumber("CLIMBER BACK I", 0.0);
+        // SmartDashboard.putNumber("CLIMBER BACK D", 0.0);
+        // SmartDashboard.putNumber("CLIMBER BACK CRUISE VELOCITY", 0);
+        // SmartDashboard.putNumber("CLIMBER BACK ACCELERATION", 0);
+
+        SmartDashboard.putNumber("HATCH PICKUP ANGLE F", 0.0);
+        SmartDashboard.putNumber("HATCH PICKUP ANGLE P", 0.0);
+        SmartDashboard.putNumber("HATCH PICKUP ANGLE I", 0.0);
+        SmartDashboard.putNumber("HATCH PICKUP ANGLE D", 0.0);
+        SmartDashboard.putNumber("HATCH PICKUP ANGLE CRUISE VELOCITY", 0);
+        SmartDashboard.putNumber("HATCH PICKUP ANGLE ACCELERATION", 0);
     }
 
     /**
@@ -177,8 +184,13 @@ public class Robot extends TimedRobot {
         SmartDashboard.putData("Auto mode", chooser);
 
         // SmartDashboard.putNumber("Ultrasonic: ", chassis.getUltrasonicDistance());
-        // SmartDashboard.putNumber("Gyro Angle: ", chassis.getGyroAngle());
+        SmartDashboard.putNumber("Gyro Angle: ", chassis.getGyroAngle());
 
+        // Drive Direction
+        // True = Green = Front of Robot
+        // False = Red = Back of Robot
+        SmartDashboard.putBoolean("Drive Direction", chassis.getDriveDirection());
+        
         // // Shooter Data
         // SmartDashboard.putNumber("Wheel Top Velocity", shooter.getWheelTopVelocity());
         // SmartDashboard.putNumber("Wheel Top Motor Percent Output", shooter.getWheelsTopMotorOutput());
@@ -200,13 +212,21 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Climber Front Velocity", climber.getFrontVelocity());
         SmartDashboard.putNumber("Climber Front Position", climber.getFrontPosition());
         SmartDashboard.putNumber("Climber Front Error", climber.getFrontError());
-        SmartDashboard.putNumber("Climber Front Motor Output", climber.getFrontVoltage());
+        SmartDashboard.putNumber("Climber Front Motor Output", climber.getFrontMotorOutput());
 
         SmartDashboard.putNumber("Climber Back Setpoint", climber.getBackSetpoint());
         SmartDashboard.putNumber("Climber Back Velocity", climber.getBackVelocity());
         SmartDashboard.putNumber("Climber Back Position", climber.getBackPosition());
         SmartDashboard.putNumber("Climber Back Error", climber.getBackError());
-        SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackVoltage());
+        SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackMotorOutput());
+
+        // Hatch Panel Data
+        SmartDashboard.putNumber("Hatch Pickup Angle Setpoint", hatchPanel.getAngleSetpoint());
+        SmartDashboard.putNumber("Hatch Pickup Angle Velocity", hatchPanel.getAngleVelocity());
+        SmartDashboard.putNumber("Hatch Pickup Angle Position", hatchPanel.getAngleEncoderPosition());
+        SmartDashboard.putNumber("Hatch Pickup Angle Error", hatchPanel.getAngleError());
+        SmartDashboard.putNumber("Hatch Pickup Angle Motor Output", hatchPanel.getAngleMotorOutput());
+
     }
     public static void setKillClimber(boolean status)
     {

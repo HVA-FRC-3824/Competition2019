@@ -206,6 +206,23 @@ public class Chassis extends Subsystem {
         // Change direction lights
         setDirectionLights();
     }
+    public void setDriveDirection(int direction)
+    {
+        // Change drive direction to desired
+        // 1: (Back of Robot) // -1: (Front of Robot)
+        m_driveDirection = direction;
+
+        // Change direction lights
+        setDirectionLights();
+    }
+    public boolean getDriveDirection()
+    {
+        // 1: Back of Robot, -1: Front of Robot
+        if (m_driveDirection == -1)
+            return true;
+        else
+            return false;
+    }
     public void resetNavXGyro()
     {
         ahrs.reset();

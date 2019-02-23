@@ -53,7 +53,7 @@ public class Shooter extends Subsystem {
     private double shooterAnglePIDParamP = Constants.SHOOTER_ANGLE_P;
     private double shooterAnglePIDParamI = Constants.SHOOTER_ANGLE_I;
     private double shooterAnglePIDParamD = Constants.SHOOTER_ANGLE_D;
-    private int    shooterAngleCruisevelocity = Constants.SHOOTER_ANGLE_CRUISE_VELOCITY;
+    private int    shooterAngleCruiseVelocity = Constants.SHOOTER_ANGLE_CRUISE_VELOCITY;
     private int    shooterAngleAcceleration   = Constants.SHOOTER_ANGLE_ACCELERATION;
 
     private int shooterAngleSetpoint       = 0;
@@ -124,7 +124,7 @@ public class Shooter extends Subsystem {
         shooterAngleMaster.config_kI(Constants.K_SLOT_IDX, shooterAnglePIDParamI, Constants.K_TIMEOUT_MS);
         shooterAngleMaster.config_kD(Constants.K_SLOT_IDX, shooterAnglePIDParamD, Constants.K_TIMEOUT_MS);
 
-        shooterAngleMaster.configMotionCruiseVelocity(shooterAngleCruisevelocity, Constants.K_TIMEOUT_MS);
+        shooterAngleMaster.configMotionCruiseVelocity(shooterAngleCruiseVelocity, Constants.K_TIMEOUT_MS);
         shooterAngleMaster.configMotionAcceleration(shooterAngleAcceleration, Constants.K_TIMEOUT_MS);
     
         shooterAngleMaster.setSelectedSensorPosition(0, Constants.K_PID_LOOP_IDX, Constants.K_TIMEOUT_MS);
@@ -372,7 +372,7 @@ public class Shooter extends Subsystem {
         shooterAnglePIDParamP = SmartDashboard.getNumber("SHOOTER ANGLE P", Constants.SHOOTER_ANGLE_P);
         shooterAnglePIDParamI = SmartDashboard.getNumber("SHOOTER ANGLE I", Constants.SHOOTER_ANGLE_I);
         shooterAnglePIDParamD = SmartDashboard.getNumber("SHOOTER ANGLE D", Constants.SHOOTER_ANGLE_D);
-        shooterAngleCruisevelocity = (int)SmartDashboard.getNumber("SHOOTER ANGLE CRUISE VELOCITY", Constants.SHOOTER_ANGLE_CRUISE_VELOCITY);
+        shooterAngleCruiseVelocity = (int)SmartDashboard.getNumber("SHOOTER ANGLE CRUISE VELOCITY", Constants.SHOOTER_ANGLE_CRUISE_VELOCITY);
         shooterAngleAcceleration = (int)SmartDashboard.getNumber("SHOOTER ANGLE ACCELERATION", Constants.SHOOTER_ANGLE_ACCELERATION);
 
         shooterAngleMaster.config_kF(0, shooterAnglePIDParamF, Constants.K_TIMEOUT_MS);
@@ -380,7 +380,7 @@ public class Shooter extends Subsystem {
         shooterAngleMaster.config_kI(0, shooterAnglePIDParamI, Constants.K_TIMEOUT_MS);
         shooterAngleMaster.config_kD(0, shooterAnglePIDParamD, Constants.K_TIMEOUT_MS);
 
-        shooterAngleMaster.configMotionCruiseVelocity(shooterAngleCruisevelocity, Constants.K_TIMEOUT_MS);
+        shooterAngleMaster.configMotionCruiseVelocity(shooterAngleCruiseVelocity, Constants.K_TIMEOUT_MS);
         shooterAngleMaster.configMotionAcceleration(shooterAngleAcceleration, Constants.K_TIMEOUT_MS);
     }
 }
