@@ -78,6 +78,7 @@ public class OI {
     public JoystickButton reviveClimb;
     public JoystickButton cameraMode;
     public JoystickButton driveToggleDirection;
+    public JoystickButton driveToTarget;
     public Joystick joystickDrive;
     public JoystickButton latchToggle;
     public JoystickButton hatchToggle;
@@ -138,9 +139,11 @@ public class OI {
         latchToggle.whenPressed(new HatchPanelLatch());
         joystickDrive = new Joystick(0);
         
+        driveToTarget = new JoystickButton(joystickDrive, 8);
+        driveToTarget.whenPressed(new AutonomousDriveToTarget());
         driveToggleDirection = new JoystickButton(joystickDrive, 1);
         driveToggleDirection.whenPressed(new ToggleDriveDirection());
-        cameraMode = new JoystickButton(joystickDrive, 11);
+        cameraMode = new JoystickButton(joystickDrive, 7);
         cameraMode.whenPressed(new ToggleCamMode());
         reviveClimb = new JoystickButton(joystickDrive, 4);
         reviveClimb.whenPressed(new ReviveClimber());

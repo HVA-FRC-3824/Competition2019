@@ -11,6 +11,8 @@
 
 package org.usfirst.frc3824.Competition2019.commands;
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc3824.Competition2019.Constants;
 import org.usfirst.frc3824.Competition2019.Robot;
 import org.usfirst.frc3824.Competition2019.support.Limelight;
 
@@ -41,29 +43,37 @@ public class AutonomousDriveToTarget extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        cam = Limelight.getInstance();
+        // set limelight to vision processing mode
+        Limelight.getInstance().setCamModeVision();
+        // drive to target
+        Robot.chassis.driveToTargetWithCameraPID();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        cam.getTargetOffset_x();    // get the TX value
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        if (Robot.oi.joystickDrive.getRawButton(Constants.DRIVE_TO_TARGET_BUTTON))
+            return false;
+        else
+            return true;
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.chassis.resetChassisPIDcontrollers();
+        Limelight.getInstance().restoreLastCamMode();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

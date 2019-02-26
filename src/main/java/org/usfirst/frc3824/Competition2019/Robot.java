@@ -143,6 +143,8 @@ public class Robot extends TimedRobot {
         autonomousCommand = chooser.getSelected();
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        // cancel autonomous command in order to jump to driveWithJoystick command for sandstorm
+        if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     /**

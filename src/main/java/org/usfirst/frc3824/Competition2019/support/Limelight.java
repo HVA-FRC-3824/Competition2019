@@ -9,11 +9,13 @@ package org.usfirst.frc3824.Competition2019.support;
 import com.sun.jdi.IntegerValue;
 
 import edu.wpi.first.networktables.*;
+import edu.wpi.first.wpilibj.PIDSource;
+import edu.wpi.first.wpilibj.PIDSourceType;
 
 /**
  * Add your docs here.
  */
-public class Limelight {
+public class Limelight implements PIDSource {
     private static Limelight instance = null;
     private static NetworkTable table;
     private static NetworkTableEntry tx;
@@ -76,6 +78,21 @@ public class Limelight {
         camMode = table.getEntry("camMode");  // 0: vision processing, 1: driver camera
         pipeline = table.getEntry("pipeline");    // 0-9
         streamMode = table.getEntry("stream"); // 0:standard, 1:pip Main, 2:pip secondary
+    }
+
+    public double pidGet()
+    {
+        return getTargetOffset_x();
+    }
+
+    public PIDSourceType getPIDSourceType()
+    {
+        return PIDSourceType.kDisplacement;
+    }
+
+    public void setPIDSourceType(PIDSourceType pidSource)
+    {
+        // do nothing
     }
 
     public double getTargetOffset_x(){
