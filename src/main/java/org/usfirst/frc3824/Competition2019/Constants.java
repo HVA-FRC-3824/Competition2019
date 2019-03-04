@@ -44,6 +44,7 @@ public class Constants
     /*****************
      * SHOOTER ANGLE *
      *****************/
+    // TODO: recalibrate PIDs after implementing calculated kF value and arbitrary feedforward model
     public static final double SHOOTER_ANGLE_F                                    = 0.08;
     public static final double SHOOTER_ANGLE_P                                    = 1.0;
     public static final double SHOOTER_ANGLE_I                                    = 0.0002;
