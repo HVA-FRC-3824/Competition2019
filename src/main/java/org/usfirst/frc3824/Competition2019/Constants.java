@@ -44,18 +44,19 @@ public class Constants
     /*****************
      * SHOOTER ANGLE *
      *****************/
-    public static final double SHOOTER_ANGLE_F                           = 0.08;
-    public static final double SHOOTER_ANGLE_P                           = 1.0;
-    public static final double SHOOTER_ANGLE_I                           = 0.0002;
-    public static final double SHOOTER_ANGLE_D                           = 0.0;
+    public static final double SHOOTER_ANGLE_F                                    = 0.08;
+    public static final double SHOOTER_ANGLE_P                                    = 1.0;
+    public static final double SHOOTER_ANGLE_I                                    = 0.0002;
+    public static final double SHOOTER_ANGLE_D                                    = 0.0;
 
-    public static final int SHOOTER_ANGLE_ACCELERATION                   = 1000;
-    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                = 1000;
+    public static final int SHOOTER_ANGLE_ACCELERATION                            = 1000;
+    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                         = 1000;
 
-    public static final int SHOOTER_ANGLE_MINIMUM                        = -180;
-    public static final int SHOOTER_ANGLE_MAXIMUM                        = 180;
+    public static final int SHOOTER_ANGLE_MINIMUM                                 = -180;
+    public static final int SHOOTER_ANGLE_MAXIMUM                                 = 180;
 
-    public static final double SHOOTER_ANGLE_ENCODER_YINTERCEPT          = 0.0;
+    public static final double SHOOTER_ANGLE_STARTING_OFFSET_FROM_HORIZONTAL_RADS = 2.61799;
+    public static final double SHOOTER_ANGLE_HORIZONTAL_STALL_OUTPUT              = 0.4;
 
     /**********************
      * SHOOTER WHEELS TOP *
