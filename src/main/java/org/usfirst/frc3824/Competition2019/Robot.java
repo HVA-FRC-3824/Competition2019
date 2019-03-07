@@ -194,22 +194,24 @@ public class Robot extends TimedRobot {
         SmartDashboard.putBoolean("Drive Direction", chassis.getDriveDirection());
         
         // // Shooter Data
-        // SmartDashboard.putNumber("Wheel Top Velocity", shooter.getWheelTopVelocity());
-        // SmartDashboard.putNumber("Wheel Top Motor Percent Output", shooter.getWheelsTopMotorOutput());
-        // SmartDashboard.putNumber("Wheel Top Error", shooter.getWheelTopError());
+        SmartDashboard.putNumber("Wheel Top Velocity", shooter.getWheelTopVelocity());
+        SmartDashboard.putNumber("Wheel Top Motor Percent Output", shooter.getWheelsTopMotorOutput());
+        SmartDashboard.putNumber("Wheel Top Error", shooter.getWheelTopError());
+        SmartDashboard.putNumber("Wheel Top Setpoint", shooter.getWheelsTopSetpoint());
         
-        // SmartDashboard.putNumber("Wheel Bottom Velocity", shooter.getWheelBottomVelocity());
-        // SmartDashboard.putNumber("Wheel Bottom Motor Percent Output", shooter.getWheelsBottomMotorOutput());
-        // SmartDashboard.putNumber("Wheel Bottom Error", shooter.getWheelBottomError());
+        SmartDashboard.putNumber("Wheel Bottom Velocity", shooter.getWheelBottomVelocity());
+        SmartDashboard.putNumber("Wheel Bottom Motor Percent Output", shooter.getWheelsBottomMotorOutput());
+        SmartDashboard.putNumber("Wheel Bottom Error", shooter.getWheelBottomError());
+        SmartDashboard.putNumber("Wheel Bottom Setpoint", shooter.getWheelsBottomSetpoint());
 
-        SmartDashboard.putNumber("Shooter Angle Error", shooter.getAngleError());
-        SmartDashboard.putNumber("Shooter Angle MotorPercent", shooter.getAngleMotorPercent());
-        SmartDashboard.putNumber("Shooter Angle Setpoint", shooter.getAngleSetpoint());
-        SmartDashboard.putNumber("Shooter Angle Position", shooter.getAnglePositionEncoder());
-        SmartDashboard.putNumber("Shooter Angle Velocity", shooter.getAngleVelocity());
-        SmartDashboard.putNumber("Shooter Angle Current", shooter.getAngleCurrent());
+        // SmartDashboard.putNumber("Shooter Angle Error", shooter.getAngleError());
+        // SmartDashboard.putNumber("Shooter Angle MotorPercent", shooter.getAngleMotorPercent());
+        // SmartDashboard.putNumber("Shooter Angle Setpoint", shooter.getAngleSetpoint());
+        // SmartDashboard.putNumber("Shooter Angle Position", shooter.getAnglePositionEncoder());
+        // SmartDashboard.putNumber("Shooter Angle Velocity", shooter.getAngleVelocity());
+        // SmartDashboard.putNumber("Shooter Angle Current", shooter.getAngleCurrent());
 
-        // Climber Data
+        // // Climber Data
         SmartDashboard.putNumber("Climber Front Setpoint", climber.getFrontSetpoint());
         SmartDashboard.putNumber("Climber Front Velocity", climber.getFrontVelocity());
         SmartDashboard.putNumber("Climber Front Position", climber.getFrontPosition());
@@ -222,12 +224,15 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Climber Back Error", climber.getBackError());
         SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackMotorOutput());
 
-        // Hatch Panel Data
-        SmartDashboard.putNumber("Hatch Pickup Angle Setpoint", hatchPanel.getAngleSetpoint());
-        SmartDashboard.putNumber("Hatch Pickup Angle Velocity", hatchPanel.getAngleVelocity());
-        SmartDashboard.putNumber("Hatch Pickup Angle Position", hatchPanel.getAngleEncoderPosition());
-        SmartDashboard.putNumber("Hatch Pickup Angle Error", hatchPanel.getAngleError());
-        SmartDashboard.putNumber("Hatch Pickup Angle Motor Output", hatchPanel.getAngleMotorOutput());
+        // // Hatch Panel Data
+        // SmartDashboard.putNumber("Hatch Pickup Angle Setpoint", hatchPanel.getAngleSetpoint());
+        // SmartDashboard.putNumber("Hatch Pickup Angle Velocity", hatchPanel.getAngleVelocity());
+        // SmartDashboard.putNumber("Hatch Pickup Angle Position", hatchPanel.getAngleEncoderPosition());
+        // SmartDashboard.putNumber("Hatch Pickup Angle Error", hatchPanel.getAngleError());
+        // SmartDashboard.putNumber("Hatch Pickup Angle Motor Output", hatchPanel.getAngleMotorOutput());
+        
+        SmartDashboard.putBoolean("Latch Status", !hatchPanel.getLatchStatus());
+        SmartDashboard.putBoolean("Deploy Status", !hatchPanel.getDeployStatus());
 
     }
     public static void setKillClimber(boolean status)

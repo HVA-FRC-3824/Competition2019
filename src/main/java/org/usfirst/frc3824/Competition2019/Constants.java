@@ -32,7 +32,7 @@ public class Constants
     public static final double CAMERA_I = 0.0;
     public static final double CAMERA_D = 0.0;
 
-    public static final int DRIVE_TO_TARGET_BUTTON = 8;
+    public static final int DRIVE_TO_TARGET_BUTTON = 10;
 
     /*********
      * PID K *
@@ -61,8 +61,8 @@ public class Constants
      * SHOOTER WHEELS TOP *
      **********************/
     public static final double SHOOTER_WHEELS_TOP_F                      = 0.0;
-    public static final double SHOOTER_WHEELS_TOP_P                      = 0.1;
-    public static final double SHOOTER_WHEELS_TOP_I                      = 0.001;
+    public static final double SHOOTER_WHEELS_TOP_P                      = 0.2;//0.1
+    public static final double SHOOTER_WHEELS_TOP_I                      = 0.0;//0.001;
     public static final double SHOOTER_WHEELS_TOP_D                      = 0.0;
 
     /*************************
@@ -99,10 +99,10 @@ public class Constants
     public static final int SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM               = -200;
     public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM            = -200;
 
-    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_FRONT_RPM                = -200;
-    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_FRONT_RPM             = -200;
-    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM                 = -200;
-    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM              = -200;
+    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_FRONT_RPM                = -275;
+    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_FRONT_RPM             = -275;
+    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM                 = -275;
+    public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM              = -275;
 
     /*****************
      * Climber Front *
@@ -113,7 +113,7 @@ public class Constants
     public static final double CLIMBER_FRONT_D                           = 0.0;
 
     public static final int CLIMBER_FRONT_ACCELERATION                   = 1000;
-    public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 500;
+    public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 200;
 
     /****************
      * Climber Back *
@@ -124,7 +124,7 @@ public class Constants
     public static final double CLIMBER_BACK_D                           = 0.0;
 
     public static final int CLIMBER_BACK_ACCELERATION                   = 1000;
-    public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 500;
+    public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 200;
 
     /****************************
      * All Systems Climb Center *
@@ -132,8 +132,8 @@ public class Constants
     public static final int ALL_CENTER_SHOOTER_CLIMB_START_POSITION            = 4500;
     public static final double ALL_CENTER_CHASSIS_INITIAL_POWER                = 0.25; 
     public static final int ALL_CENTER_CHASSIS_INITIAL_TIME                    = 1;
-    public static final int ALL_CENTER_FRONT_CLIMBER_EXTEND_POSITION           = 15000;
-    public static final int ALL_CENTER_BACK_CLIMBER_EXTEND_POSITION            = 15000;
+    public static final int ALL_CENTER_FRONT_CLIMBER_EXTEND_POSITION           = 16750;
+    public static final int ALL_CENTER_BACK_CLIMBER_EXTEND_POSITION            = 16750;
     public static final int ALL_CENTER_SHOOTER_PULL_IN_POSITION                = 13000;
     public static final int ALL_CENTER_SHOOTER_PULL_IN_RPM                     = -2000;
     public static final double ALL_CENTER_CHASSIS_PLATFORM_POWER               = 0.25;

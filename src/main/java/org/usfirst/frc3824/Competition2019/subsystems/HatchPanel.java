@@ -104,6 +104,8 @@ public class HatchPanel extends Subsystem {
         pickupAngle.configMotionAcceleration(hatchPickupAngleAcceleration, Constants.K_TIMEOUT_MS);
     
         pickupAngle.setSelectedSensorPosition(0, Constants.K_PID_LOOP_IDX, Constants.K_TIMEOUT_MS);
+
+        toggleLatch();
     }
 
     @Override
@@ -135,11 +137,18 @@ public class HatchPanel extends Subsystem {
         latchStatus = !latchStatus;
         latcher.set(latchStatus);
     }
-
+    public boolean getLatchStatus()
+    {
+        return latchStatus;
+    }
     public void setDeployed()
     {
         deployStatus = !deployStatus;
         deployer.set(deployStatus);
+    }
+    public boolean getDeployStatus()
+    {
+        return deployStatus;
     }
     public void setAngleEncoder(int ticks)
     {

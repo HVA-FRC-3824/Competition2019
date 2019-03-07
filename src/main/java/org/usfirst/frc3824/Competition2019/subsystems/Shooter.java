@@ -214,6 +214,7 @@ public class Shooter extends Subsystem {
             shooterWheelsTop.set(ControlMode.Velocity, calculatedVelocity);
         else
             shooterWheelsBottom.set(ControlMode.Velocity, calculatedVelocity);
+
     }
     /**********************************
      * Returns velocity of top wheels *
@@ -244,6 +245,14 @@ public class Shooter extends Subsystem {
     public double getWheelsBottomMotorOutput()
     {
         return shooterWheelsBottom.getMotorOutputPercent();
+    }
+    public double getWheelsTopSetpoint()
+    {
+        return shooterWheelsTop.getClosedLoopTarget();
+    }
+    public double getWheelsBottomSetpoint()
+    {
+        return shooterWheelsBottom.getClosedLoopTarget();
     }
     public void setWheelsTopPID()
     {
