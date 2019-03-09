@@ -174,4 +174,13 @@ public class Constants
 
     public static final int HATCH_PICKUP_ANGLE_CRUISE_VELOCITY               = 0;
     public static final int HATCH_PICKUP_ANGLE_ACCELERATION                  = 0;
+
+    /************************
+     * AUTO PATH GENERATION *
+     ************************/
+    public static final double PATH_DT                  = 0.02; // in seconds
+    public static final double PATH_MAX_VELOCITY        = 1.5; // in meters per second
+    public static final double PATH_MAX_ACC             = 1.5; // in meters per second per second
+    public static final double PATH_MAX_JERK            = 60.0; // in meters per second per second per second
+    public static final double PATH_WHEELBASE           = 0.568; // practice bot in meters; competition bot = 0.579
 }
