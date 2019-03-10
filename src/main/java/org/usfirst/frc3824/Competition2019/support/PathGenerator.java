@@ -18,7 +18,7 @@ import jaci.pathfinder.modifiers.TankModifier;
 
 public class PathGenerator {
 
-    private ArrayList<Waypoint> pointList;
+    private ArrayList<Waypoint> pointList = new ArrayList<Waypoint>();
 
     private Trajectory leftTraj;
     private Trajectory rightTraj;

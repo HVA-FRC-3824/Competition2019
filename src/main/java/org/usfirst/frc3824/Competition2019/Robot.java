@@ -191,10 +191,10 @@ public class Robot extends TimedRobot {
 
         displaySmartDashboardInfo();
 
-        Trajectory.Segment pathSegmentLeft = pathGen.getLeftTraj().get(iterator);
-        Trajectory.Segment pathSegmentRight = pathGen.getRightTraj().get(iterator);
+        if(iterator < pathGen.getLeftTraj().length()) {
+            Trajectory.Segment pathSegmentLeft = pathGen.getLeftTraj().get(iterator);
+            Trajectory.Segment pathSegmentRight = pathGen.getRightTraj().get(iterator);
 
-        if(iterator % 100 == 0) {
             System.out.println("Path Velocity Left: " + pathSegmentLeft.velocity);
             System.out.println("Path Velocity Right: " + pathSegmentRight.velocity);
             System.out.println("Path Position X Left: " + pathSegmentLeft.x);
