@@ -179,8 +179,18 @@ public class Constants
      * AUTO PATH GENERATION *
      ************************/
     public static final double PATH_DT                  = 0.02; // in seconds
-    public static final double PATH_MAX_VELOCITY        = 1.5; // in meters per second
+    public static final double PATH_MAX_VELOCITY        = 1.5; // in meters per second TODO: Calibrate max v, a, and jerk
     public static final double PATH_MAX_ACC             = 1.5; // in meters per second per second
     public static final double PATH_MAX_JERK            = 60.0; // in meters per second per second per second
     public static final double PATH_WHEELBASE           = 0.568; // practice bot in meters; competition bot = 0.579
+
+    /*********************
+     * Vision Processing *
+     *********************/
+    public static final double VISION_DISTANCE_FROM_TAR_MID_WAYPOINT   = 1.5; // in meters
+    public static final double VISION_DISTANCE_FROM_TAR_END_WAYPOINT   = 0.5; // in meters
+
+    public static final double VISION_TARGETS_FROM_GROUND_FIELD_HEIGHT = 0.8; // in meters
+    public static final double VISION_CAM_MOUNT_HEIGHT                 = 0.1; // in meters TODO: Measure cam mount height
+    public static final double VISION_CAM_MOUNT_ANGLE                  = 0.1; // in degrees
 }

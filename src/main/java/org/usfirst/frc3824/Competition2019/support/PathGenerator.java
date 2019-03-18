@@ -18,23 +18,25 @@ import jaci.pathfinder.modifiers.TankModifier;
 
 public class PathGenerator {
 
-    private ArrayList<Waypoint> pointList = new ArrayList<Waypoint>();
+    private static PathGenerator instance = null;
 
-    private Trajectory leftTraj;
-    private Trajectory rightTraj;
+    private static ArrayList<Waypoint> pointList = new ArrayList<Waypoint>();
+
+    private static Trajectory leftTraj;
+    private static Trajectory rightTraj;
 
     // Add waypoint to be used in path generation; params: (x, y, exitAngleRadians)
-    public void addWaypoint(double x, double y, double angleDegrees) {
+    public static void addWaypoint(double x, double y, double angleDegrees) {
         pointList.add(new Waypoint(x, y, Pathfinder.d2r(angleDegrees)));
     }
 
     // Remove all waypoints from waypoint list
-    public void clearWaypoints() {
+    public static void clearWaypoints() {
         pointList.clear();
     }
     
     // Generate trajectory from path; params: (fitMethod, sampleRate, deltaTime, maxVelocity, maxAcceleration, maxJerk)
-    public void calcTrajectory() {
+    public static void calcTrajectory() {
         Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, Constants.PATH_DT, Constants.PATH_MAX_VELOCITY, Constants.PATH_MAX_ACC, Constants.PATH_MAX_JERK);
         Waypoint[] points = pointList.toArray(new Waypoint[pointList.size()]);
 
@@ -48,12 +50,19 @@ public class PathGenerator {
     }
 
     // Gets calculated trajectory for left side of the drivetrain
-    public Trajectory getLeftTraj() {
+    public static Trajectory getLeftTraj() {
         return leftTraj;
     }
 
     // Gets calculated trajectory for right side of the drivetrain
-    public Trajectory getRightTraj() {
+    public static Trajectory getRightTraj() {
         return rightTraj;
+    }
+
+    public static PathGenerator getInstance() {
+        if (instance == null)
+            instance = new PathGenerator();
+
+        return instance;
     }
 }
