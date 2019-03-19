@@ -25,14 +25,17 @@ public class Constants
     public static final double ULTRASONIC_SLOPE = 9.41;
     public static final double ULTRASONIC_OFFSET = 0.00533;
 
-    /**
-     * CAMERA
-     */
-    public static final double CAMERA_P = 0.0;
-    public static final double CAMERA_I = 0.0;
-    public static final double CAMERA_D = 0.0;
+    /****************
+     * CAMERA DRIVE *
+    ***************/
+    public static final double DRIVETRAIN_CAMERA_DRIVE_MINIMUM_OUTPUT = -1.0;
+    public static final double DRIVETRAIN_CAMERA_DRIVE_MAXIMUM_OUTPUT = 1.0;
 
-    public static final int DRIVE_TO_TARGET_BUTTON = 8;
+    public static final double CAMERA_P                               = 0.012;
+    public static final double CAMERA_I                               = 0.0005;
+    public static final double CAMERA_D                               = 0.01;
+
+    public static final int    DRIVE_TO_TARGET_BUTTON                 = 1;
 
     /*********
      * PID K *

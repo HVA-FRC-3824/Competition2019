@@ -45,6 +45,8 @@ public class ShooterDeploy extends Command {
         m_timer.reset();
         m_timer.start();
         Robot.shooter.setPusher(true);
+
+        Robot.setNextGamepiece(0);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 import org.usfirst.frc3824.Competition2019.Constants;
 import org.usfirst.frc3824.Competition2019.Robot;
-import org.usfirst.frc3824.Competition2019.subsystems.*;
 
 /**
  *

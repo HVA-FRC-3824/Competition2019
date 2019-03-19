@@ -11,8 +11,6 @@
 
 package org.usfirst.frc3824.Competition2019.subsystems;
 
-
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 

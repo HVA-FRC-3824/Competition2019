@@ -13,13 +13,8 @@ package org.usfirst.frc3824.Competition2019.subsystems;
 
 
 import org.usfirst.frc3824.Competition2019.Constants;
-import org.usfirst.frc3824.Competition2019.commands.*;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.PIDSource;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -68,6 +63,8 @@ public class Shooter extends Subsystem {
     private double shooterWheelsBottomPIDParamP = Constants.SHOOTER_WHEELS_BOTTOM_P;
     private double shooterWheelsBottomPIDParamI = Constants.SHOOTER_WHEELS_BOTTOM_I;
     private double shooterWheelsBottomPIDParamD = Constants.SHOOTER_WHEELS_BOTTOM_D;
+
+    private boolean pusherStatus = false;
 
     /***
      * Boolean shows if cargo shoot angle or spaceship shoot angle 
@@ -279,6 +276,7 @@ public class Shooter extends Subsystem {
     public void setPusher(boolean status)
     {
         shooterPusher.set(status);
+        pusherStatus = status;
     }
     public void setShooterType(boolean type)
     {
@@ -393,5 +391,10 @@ public class Shooter extends Subsystem {
 
         shooterAngleMaster.configMotionCruiseVelocity(shooterAngleCruiseVelocity, Constants.K_TIMEOUT_MS);
         shooterAngleMaster.configMotionAcceleration(shooterAngleAcceleration, Constants.K_TIMEOUT_MS);
+    }
+
+    public boolean getPusherStatus()
+    {
+        return pusherStatus;
     }
 }

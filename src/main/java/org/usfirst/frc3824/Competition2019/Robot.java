@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3824.Competition2019.commands.*;
 import org.usfirst.frc3824.Competition2019.subsystems.*;
+import org.usfirst.frc3824.Competition2019.support.Limelight;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -43,6 +44,8 @@ public class Robot extends TimedRobot {
     public static Constants constants;
 
     private static boolean killClimber = false;
+    private static int nextGamepiece = 0;
+    private static boolean readyToPlace = false;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -80,12 +83,12 @@ public class Robot extends TimedRobot {
         killClimber = false;
 
         // Create SmartDashboard F,P,I,D,Velocity,Acceleration for calibrating Shooter Angle PID's
-        SmartDashboard.putNumber("SHOOTER ANGLE F", 0.0);
-        SmartDashboard.putNumber("SHOOTER ANGLE P", 0.0);
-        SmartDashboard.putNumber("SHOOTER ANGLE I", 0.0);
-        SmartDashboard.putNumber("SHOOTER ANGLE D", 0.0);
-        SmartDashboard.putNumber("SHOOTER ANGLE CRUISE VELOCITY", 0);
-        SmartDashboard.putNumber("SHOOTER ANGLE ACCELERATION", 0);
+        // SmartDashboard.putNumber("SHOOTER ANGLE F", 0.0);
+        // SmartDashboard.putNumber("SHOOTER ANGLE P", 0.0);
+        // SmartDashboard.putNumber("SHOOTER ANGLE I", 0.0);
+        // SmartDashboard.putNumber("SHOOTER ANGLE D", 0.0);
+        // SmartDashboard.putNumber("SHOOTER ANGLE CRUISE VELOCITY", 0);
+        // SmartDashboard.putNumber("SHOOTER ANGLE ACCELERATION", 0);
 
         // SmartDashboard.putNumber("SHOOTER TOP F", 0.0);
         // SmartDashboard.putNumber("SHOOTER TOP P", 0.0);
@@ -111,12 +114,12 @@ public class Robot extends TimedRobot {
         // SmartDashboard.putNumber("CLIMBER BACK CRUISE VELOCITY", 0);
         // SmartDashboard.putNumber("CLIMBER BACK ACCELERATION", 0);
 
-        SmartDashboard.putNumber("HATCH PICKUP ANGLE F", 0.0);
-        SmartDashboard.putNumber("HATCH PICKUP ANGLE P", 0.0);
-        SmartDashboard.putNumber("HATCH PICKUP ANGLE I", 0.0);
-        SmartDashboard.putNumber("HATCH PICKUP ANGLE D", 0.0);
-        SmartDashboard.putNumber("HATCH PICKUP ANGLE CRUISE VELOCITY", 0);
-        SmartDashboard.putNumber("HATCH PICKUP ANGLE ACCELERATION", 0);
+        // SmartDashboard.putNumber("HATCH PICKUP ANGLE F", 0.0);
+        // SmartDashboard.putNumber("HATCH PICKUP ANGLE P", 0.0);
+        // SmartDashboard.putNumber("HATCH PICKUP ANGLE I", 0.0);
+        // SmartDashboard.putNumber("HATCH PICKUP ANGLE D", 0.0);
+        // SmartDashboard.putNumber("HATCH PICKUP ANGLE CRUISE VELOCITY", 0);
+        // SmartDashboard.putNumber("HATCH PICKUP ANGLE ACCELERATION", 0);
     }
 
     /**
@@ -191,8 +194,18 @@ public class Robot extends TimedRobot {
         // True = Green = Front of Robot
         // False = Red = Back of Robot
         SmartDashboard.putBoolean("Drive Direction", chassis.getDriveDirection());
+        SmartDashboard.putNumber("Drive Left Output", chassis.getLeftOutput());
+        SmartDashboard.putNumber("Drive Right Output", chassis.getRightOutput());
+
+        // Vision Data
+        SmartDashboard.putNumber("tx", Limelight.getInstance().getTargetOffset_x());
+        SmartDashboard.putNumber("Gamepiece in Possession", nextGamepiece);
+        SmartDashboard.putBoolean("Ready To Place", readyToPlace);
         
-        // // Shooter Data
+        // Shooter Data
+
+        SmartDashboard.putBoolean("Shooter Pusher", shooter.getPusherStatus());
+
         // SmartDashboard.putNumber("Wheel Top Velocity", shooter.getWheelTopVelocity());
         // SmartDashboard.putNumber("Wheel Top Motor Percent Output", shooter.getWheelsTopMotorOutput());
         // SmartDashboard.putNumber("Wheel Top Error", shooter.getWheelTopError());
@@ -201,32 +214,28 @@ public class Robot extends TimedRobot {
         // SmartDashboard.putNumber("Wheel Bottom Motor Percent Output", shooter.getWheelsBottomMotorOutput());
         // SmartDashboard.putNumber("Wheel Bottom Error", shooter.getWheelBottomError());
 
-        SmartDashboard.putNumber("Shooter Angle Error", shooter.getAngleError());
-        SmartDashboard.putNumber("Shooter Angle MotorPercent", shooter.getAngleMotorPercent());
-        SmartDashboard.putNumber("Shooter Angle Setpoint", shooter.getAngleSetpoint());
-        SmartDashboard.putNumber("Shooter Angle Position", shooter.getAnglePositionEncoder());
-        SmartDashboard.putNumber("Shooter Angle Velocity", shooter.getAngleVelocity());
-        SmartDashboard.putNumber("Shooter Angle Current", shooter.getAngleCurrent());
+        // SmartDashboard.putNumber("Shooter Angle Error", shooter.getAngleError());
+        // SmartDashboard.putNumber("Shooter Angle MotorPercent", shooter.getAngleMotorPercent());
+        // SmartDashboard.putNumber("Shooter Angle Setpoint", shooter.getAngleSetpoint());
+        // SmartDashboard.putNumber("Shooter Angle Position", shooter.getAnglePositionEncoder());
+        // SmartDashboard.putNumber("Shooter Angle Velocity", shooter.getAngleVelocity());
+        // SmartDashboard.putNumber("Shooter Angle Current", shooter.getAngleCurrent());
 
-        // Climber Data
-        SmartDashboard.putNumber("Climber Front Setpoint", climber.getFrontSetpoint());
-        SmartDashboard.putNumber("Climber Front Velocity", climber.getFrontVelocity());
-        SmartDashboard.putNumber("Climber Front Position", climber.getFrontPosition());
-        SmartDashboard.putNumber("Climber Front Error", climber.getFrontError());
-        SmartDashboard.putNumber("Climber Front Motor Output", climber.getFrontMotorOutput());
+        // // Climber Data
+        // SmartDashboard.putNumber("Climber Front Setpoint", climber.getFrontSetpoint());
+        // SmartDashboard.putNumber("Climber Front Velocity", climber.getFrontVelocity());
+        // SmartDashboard.putNumber("Climber Front Position", climber.getFrontPosition());
+        // SmartDashboard.putNumber("Climber Front Error", climber.getFrontError());
+        // SmartDashboard.putNumber("Climber Front Motor Output", climber.getFrontMotorOutput());
 
-        SmartDashboard.putNumber("Climber Back Setpoint", climber.getBackSetpoint());
-        SmartDashboard.putNumber("Climber Back Velocity", climber.getBackVelocity());
-        SmartDashboard.putNumber("Climber Back Position", climber.getBackPosition());
-        SmartDashboard.putNumber("Climber Back Error", climber.getBackError());
-        SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackMotorOutput());
+        // SmartDashboard.putNumber("Climber Back Setpoint", climber.getBackSetpoint());
+        // SmartDashboard.putNumber("Climber Back Velocity", climber.getBackVelocity());
+        // SmartDashboard.putNumber("Climber Back Position", climber.getBackPosition());
+        // SmartDashboard.putNumber("Climber Back Error", climber.getBackError());
+        // SmartDashboard.putNumber("Climber Back Motor Output", climber.getBackMotorOutput());
 
         // Hatch Panel Data
-        SmartDashboard.putNumber("Hatch Pickup Angle Setpoint", hatchPanel.getAngleSetpoint());
-        SmartDashboard.putNumber("Hatch Pickup Angle Velocity", hatchPanel.getAngleVelocity());
-        SmartDashboard.putNumber("Hatch Pickup Angle Position", hatchPanel.getAngleEncoderPosition());
-        SmartDashboard.putNumber("Hatch Pickup Angle Error", hatchPanel.getAngleError());
-        SmartDashboard.putNumber("Hatch Pickup Angle Motor Output", hatchPanel.getAngleMotorOutput());
+        SmartDashboard.putBoolean("Latch", hatchPanel.getLatchStatus());
 
     }
     public static void setKillClimber(boolean status)
@@ -236,5 +245,25 @@ public class Robot extends TimedRobot {
     public static boolean getKillClimber()
     {
         return killClimber;
+    }
+    
+    // Sets next gamepiece to be placed using vision-based auto driving
+    // 1 = Hatch; 2 = Cargo; 0 = Neither
+    public static void setNextGamepiece(int piece)
+    {
+        nextGamepiece = piece;
+    }
+    public static int getNextGamepiece()
+    {
+        return nextGamepiece;
+    }
+    
+    public static void setReadyToPlace(boolean ready)
+    {
+        readyToPlace = ready;
+    }
+    public static boolean getReadyToPlace()
+    {
+        return readyToPlace;
     }
 }

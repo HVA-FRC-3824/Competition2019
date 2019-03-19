@@ -6,7 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc3824.Competition2019.support;
-import com.sun.jdi.IntegerValue;
 
 import edu.wpi.first.networktables.*;
 import edu.wpi.first.wpilibj.PIDSource;

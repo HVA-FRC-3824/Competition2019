@@ -41,6 +41,14 @@ public class SetShooterSpeedStraight extends Command {
     protected void initialize() {
         Robot.shooter.setWheelVelocity(m_rpm, true);
         Robot.shooter.setWheelVelocity(m_rpm, false);
+
+        if(m_rpm > 0)
+        {
+            Robot.setNextGamepiece(2);
+        } else
+        {
+            Robot.setNextGamepiece(0);
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -45,7 +45,7 @@ public class AutonomousDriveToTarget extends Command {
     protected void initialize() {
         // set limelight to vision processing mode
         Limelight.getInstance().setCamModeVision();
-        // drive to target
+        // drive to target using WPI PID controller
         Robot.chassis.driveToTargetWithCameraPID();
     }
 
