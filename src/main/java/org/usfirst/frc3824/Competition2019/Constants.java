@@ -182,6 +182,7 @@ public class Constants
      * AUTO PATH GENERATION *
      ************************/
     public static final double PATH_DT                  = 0.02; // in seconds
+    // Max v practice = 7.0 ft per second; Max a practice = 10 ft per second per second
     public static final double PATH_MAX_VELOCITY        = 1.5; // in meters per second TODO: Calibrate max v, a, and jerk
     public static final double PATH_MAX_ACC             = 1.5; // in meters per second per second
     public static final double PATH_MAX_JERK            = 60.0; // in meters per second per second per second

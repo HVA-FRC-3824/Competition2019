@@ -47,6 +47,69 @@ public class AutonomousDriveToTarget extends Command {
         Limelight.getInstance().setCamModeVision();
         // drive to target using WPI PID controller
         Robot.chassis.driveToTargetWithCameraPID();
+
+        // Prepare shooter if we're holding cargo
+        if(Robot.getNextGamepiece() == 2)
+        {
+            // WHEELS: true = top wheels, false = bottom wheels
+            // SHOOTER TYPE: true = spaceship, false = cargoship
+            // RAW BUTTONS: 7 = top, 19 = bottom, neither = middle
+            // RAW BUTTONS: 8 = front, 9 = back, neither = middle
+            if (Robot.shooter.getShooterType())
+            {
+                if (Robot.oi.board.getRawButton(8)) // front
+                {
+                    if (Robot.oi.board.getRawButton(7)) // top
+                    {
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_FRONT_TOP_RPM, true);
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_FRONT_TOP_RPM, false);
+                    }
+                        
+                    else if (Robot.oi.board.getRawButton(19)) // bottom
+                    {
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM, true);
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM, false);
+                    }
+                    else // middle
+                    {
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_FRONT_MIDDLE_RPM, true);
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_FRONT_MIDDLE_RPM, false);
+                    }
+                } 
+                else if (Robot.oi.board.getRawButton(9)) // back
+                {
+                    if (Robot.oi.board.getRawButton(7)) // top
+                    {
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BACK_TOP_RPM, true);
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BACK_TOP_RPM, false);
+                    }
+                        
+                    else if (Robot.oi.board.getRawButton(19)) // bottom
+                    {
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM, true);
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM, false);
+                    }
+                    else // middle
+                    {
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_SPACESHIP_BACK_MIDDLE_RPM, true);
+                        Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_SPACESHIP_BACK_MIDDLE_RPM, false);
+                    }
+                }
+            }
+            else
+            {
+                if (Robot.oi.board.getRawButton(8)) // front
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_FRONT_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_FRONT_RPM, false);
+                }
+                else if (Robot.oi.board.getRawButton(9)) // back
+                {
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM, true);
+                    Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM, false);
+                }
+            }
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -68,6 +131,15 @@ public class AutonomousDriveToTarget extends Command {
     protected void end() {
         Robot.chassis.resetChassisPIDcontrollers();
         Limelight.getInstance().restoreLastCamMode();
+
+        if(Robot.getReadyToPlace())
+        {
+            if(Robot.getNextGamepiece() == 0 || Robot.getNextGamepiece() == 1)
+            {
+                // Hatch Panel Latch
+                Robot.hatchPanel.toggleLatch();
+            }
+        }
     }
 
     // Called when another command which requires one or more of the same

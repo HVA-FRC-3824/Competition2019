@@ -60,7 +60,7 @@ public class OI {
     public JoystickButton cameraMode;
     public JoystickButton driveToggleDirection;
     public JoystickButton driveToTarget;
-    public JoystickButton placeGamepiece;
+    public JoystickButton deployShooterIfReady;
     public JoystickButton readyToPlace;
     public JoystickButton unReadyToPlace;
     public Joystick joystickDrive;
@@ -121,10 +121,10 @@ public class OI {
         unReadyToPlace.whenReleased(new SetReadyToPlace(false));
         readyToPlace = new JoystickButton(joystickDrive, 11);
         readyToPlace.whenPressed(new SetReadyToPlace(true));
-        placeGamepiece = new JoystickButton(joystickDrive, 1);
-        placeGamepiece.whenReleased(new AutonomousDriveToTargetPlace());
+        deployShooterIfReady = new JoystickButton(joystickDrive, 1);
+        deployShooterIfReady.whenReleased(new ShooterDeployIfReady());
         driveToTarget = new JoystickButton(joystickDrive, 1);
-        driveToTarget.whenPressed(new AutonomousDriveToTargetGamepiece());
+        driveToTarget.whenPressed(new AutonomousDriveToTarget());
         driveToggleDirection = new JoystickButton(joystickDrive, 10);
         driveToggleDirection.whenPressed(new ToggleDriveDirection());
         cameraMode = new JoystickButton(joystickDrive, 7);
