@@ -155,4 +155,14 @@ public class Limelight implements PIDSource {
     public void setStreamMode(StreamMode mode){
         streamMode.setNumber(mode.modeValue);
     }
+
+    public void turnOffLed()
+    {
+        setLedMode(LedMode.OFF);
+    }
+
+    public void turnOnLed()
+    {
+        setLedMode(LedMode.ON);
+    }
 }

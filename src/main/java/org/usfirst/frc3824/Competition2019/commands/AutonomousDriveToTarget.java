@@ -131,15 +131,6 @@ public class AutonomousDriveToTarget extends Command {
     protected void end() {
         Robot.chassis.resetChassisPIDcontrollers();
         Limelight.getInstance().restoreLastCamMode();
-
-        if(Robot.getReadyToPlace())
-        {
-            if(Robot.getNextGamepiece() == 0 || Robot.getNextGamepiece() == 1)
-            {
-                // Hatch Panel Latch
-                Robot.hatchPanel.toggleLatch();
-            }
-        }
     }
 
     // Called when another command which requires one or more of the same

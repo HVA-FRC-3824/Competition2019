@@ -96,6 +96,11 @@ public class ShooterPrepare extends Command {
                 Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM, true);
                 Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM, false);
             }
+            else
+            {
+                Robot.shooter.setWheelVelocity(Constants.SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM, true);
+                Robot.shooter.setWheelVelocity(Constants.SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM, false);
+            }
         }
     }
 

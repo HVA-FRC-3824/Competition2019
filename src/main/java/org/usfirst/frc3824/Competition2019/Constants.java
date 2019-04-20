@@ -31,8 +31,8 @@ public class Constants
     public static final double DRIVETRAIN_CAMERA_DRIVE_MINIMUM_OUTPUT = -1.0;
     public static final double DRIVETRAIN_CAMERA_DRIVE_MAXIMUM_OUTPUT = 1.0;
 
-    public static final double CAMERA_P                               = 0.012;
-    public static final double CAMERA_I                               = 0.0005;
+    public static final double CAMERA_P                               = 0.015;
+    public static final double CAMERA_I                               = 0.0008;
     public static final double CAMERA_D                               = 0.01;
 
     public static final int    DRIVE_TO_TARGET_BUTTON                 = 1;
@@ -48,13 +48,13 @@ public class Constants
      * SHOOTER ANGLE *
      *****************/
     // TODO: recalibrate PIDs after implementing calculated kF value and arbitrary feedforward model
-    public static final double SHOOTER_ANGLE_F                                    = 0.08;
-    public static final double SHOOTER_ANGLE_P                                    = 1.0;
-    public static final double SHOOTER_ANGLE_I                                    = 0.0002;
-    public static final double SHOOTER_ANGLE_D                                    = 0.0;
+    public static final double SHOOTER_ANGLE_F                                    = 0.021; //0.08
+    public static final double SHOOTER_ANGLE_P                                    = 0.27; //1.0
+    public static final double SHOOTER_ANGLE_I                                    = 0.001;//0.0005; //0.0002
+    public static final double SHOOTER_ANGLE_D                                    = 0.016;//0.008;
 
-    public static final int SHOOTER_ANGLE_ACCELERATION                            = 1000;
-    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                         = 1000;
+    public static final int SHOOTER_ANGLE_ACCELERATION                            = 250;
+    public static final int SHOOTER_ANGLE_CRUISE_VELOCITY                         = 500;
 
     public static final int SHOOTER_ANGLE_MINIMUM                                 = -180;
     public static final int SHOOTER_ANGLE_MAXIMUM                                 = 180;
@@ -81,14 +81,14 @@ public class Constants
     /*********************
      * SHOOTER POSITIONS *
      *********************/
-    public static final int SHOOTER_SPACESHIP_FRONT_TOP_ANGLE_POSITION        = 6750;
-    public static final int SHOOTER_SPACESHIP_FRONT_MIDDLE_ANGLE_POSITION     = 7800;
-    public static final int SHOOTER_SPACESHIP_BACK_TOP_ANGLE_POSITION         = 2000;
-    public static final int SHOOTER_SPACESHIP_BACK_MIDDLE_ANGLE_POSITION      = 1000;
-    public static final int SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION           = 11420;
+    public static final int SHOOTER_SPACESHIP_FRONT_TOP_ANGLE_POSITION        = 1300; //6750;
+    public static final int SHOOTER_SPACESHIP_FRONT_MIDDLE_ANGLE_POSITION     = 1500; //7800;
+    public static final int SHOOTER_SPACESHIP_BACK_TOP_ANGLE_POSITION         = 300; //2000;
+    public static final int SHOOTER_SPACESHIP_BACK_MIDDLE_ANGLE_POSITION      = 200; //1000;
+    public static final int SHOOTER_SPACESHIP_BOTTOM_ANGLE_POSITION           = 3000; //4400;
 
-    public static final int SHOOTER_CARGOSHIP_FRONT_ANGLE_POSITION            = 6050;
-    public static final int SHOOTER_CARGOSHIP_BACK_ANGLE_POSITION             = 3000;
+    public static final int SHOOTER_CARGOSHIP_FRONT_ANGLE_POSITION            = 2200; //2930;
+    public static final int SHOOTER_CARGOSHIP_BACK_ANGLE_POSITION             = 0;
 
     /**********************
      * SHOOTER SHOOT RPMS *
@@ -104,9 +104,9 @@ public class Constants
     public static final int SHOOTER_TOPWHEEL_SPACESHIP_BOTTOM_RPM               = -200;
     public static final int SHOOTER_BOTTOMWHEEL_SPACESHIP_BOTTOM_RPM            = -200;
 
-    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_FRONT_RPM                = -200;
+    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_FRONT_RPM                = -1400;
     public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_FRONT_RPM             = -200;
-    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM                 = -200;
+    public static final int SHOOTER_TOPWHEEL_CARGOSHIP_BACK_RPM                 = -2400;
     public static final int SHOOTER_BOTTOMWHEEL_CARGOSHIP_BACK_RPM              = -200;
 
     /*****************
@@ -118,7 +118,7 @@ public class Constants
     public static final double CLIMBER_FRONT_D                           = 0.0;
 
     public static final int CLIMBER_FRONT_ACCELERATION                   = 1000;
-    public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 500;
+    public static final int CLIMBER_FRONT_CRUISE_VELOCITY                = 1000;
 
     /****************
      * Climber Back *
@@ -129,7 +129,7 @@ public class Constants
     public static final double CLIMBER_BACK_D                           = 0.0;
 
     public static final int CLIMBER_BACK_ACCELERATION                   = 1000;
-    public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 500;
+    public static final int CLIMBER_BACK_CRUISE_VELOCITY                = 1000;
 
     /****************************
      * All Systems Climb Center *
@@ -182,19 +182,15 @@ public class Constants
      * AUTO PATH GENERATION *
      ************************/
     public static final double PATH_DT                  = 0.02; // in seconds
-    // Max v practice = 7.0 ft per second; Max a practice = 10 ft per second per second
-    public static final double PATH_MAX_VELOCITY        = 1.5; // in meters per second TODO: Calibrate max v, a, and jerk
-    public static final double PATH_MAX_ACC             = 1.5; // in meters per second per second
+    public static final double PATH_MAX_VELOCITY        = 2.2; // in meters per second TODO: Calibrate max v, a, and jerk
+    public static final double PATH_MAX_ACC             = 3.0; // in meters per second per second
     public static final double PATH_MAX_JERK            = 60.0; // in meters per second per second per second
     public static final double PATH_WHEELBASE           = 0.568; // practice bot in meters; competition bot = 0.579
 
-    /*********************
-     * Vision Processing *
-     *********************/
-    public static final double VISION_DISTANCE_FROM_TAR_MID_WAYPOINT   = 1.5; // in meters
-    public static final double VISION_DISTANCE_FROM_TAR_END_WAYPOINT   = 0.5; // in meters
-
-    public static final double VISION_TARGETS_FROM_GROUND_FIELD_HEIGHT = 0.8; // in meters
-    public static final double VISION_CAM_MOUNT_HEIGHT                 = 0.1; // in meters TODO: Measure cam mount height
-    public static final double VISION_CAM_MOUNT_ANGLE                  = 0.1; // in degrees
+    /************************
+     * AUTO PATH FOLLOWING *
+     ************************/
+    // Max v practice = 2.2 m/s; Max a practice = 3.0 m/s/s
+    public static final double PATH_FOLLOWING_K_V = (1.0 / 3.5) * 1.0;
+    public static final double PATH_FOLLOWING_K_A = 0;
 }
